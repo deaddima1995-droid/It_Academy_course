@@ -3,7 +3,7 @@ package my.home.task;
 import java.util.Arrays;
 import java.util.Random;
 
-public class Main {
+public class MergeSort {
 
     public static void main(String[] args) {
         int[] massive = new int[1000];
