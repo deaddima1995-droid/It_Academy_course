@@ -3,7 +3,7 @@
         "n". Суть задания посчитать сумму всех элементов массива, однако если в массиве
         встречается число "n" то в сумму его включать не нужно.
 */
-package home.task1;
+package homework.task1;
 
 public class Task1 {
 
@@ -27,8 +27,9 @@ public class Task1 {
             }
             sum += cell;
         }
-        System.out.println("\nСумма чисел в массиве, за исключением числа "+number+"\tравна = "+sum);
+        System.out.println("\nСумма чисел в массиве, за исключением числа " + number + "\tравна = " + sum);
     }
+
     public static void pasteRandomNumber(int[] array) {
         int min = 0;
         int max = 10;
@@ -36,9 +37,10 @@ public class Task1 {
             array[i] = (int) (Math.random() * ((max - min) + 1)) + min;
         }
     }
+
     public static void writeArray(int[] array) {
-        for (int cell: array) {
-            System.out.print("\t"+cell);
+        for (int cell : array) {
+            System.out.print("\t" + cell);
         }
     }
 }
