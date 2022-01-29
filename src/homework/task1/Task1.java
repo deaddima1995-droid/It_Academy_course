@@ -42,5 +42,6 @@ public class Task1 {
         for (int cell : array) {
             System.out.print("\t" + cell);
         }
+        System.out.println(" ");
     }
 }
