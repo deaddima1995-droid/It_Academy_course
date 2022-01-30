@@ -38,7 +38,7 @@ public class Task1 {
         }
     }
     public static void pasteRandomNumber(int[][] array) {
-        int min = 0;
+        int min = -10;
         int max = 10;
         for (int i = 0; i < array.length; i++) {
             for (int j = 0; j < array[i].length; j++) {
