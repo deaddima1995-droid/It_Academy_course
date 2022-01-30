@@ -53,4 +53,13 @@ public class Task1 {
         }
         System.out.println(" ");
     }
+    public static void writeArray(int[][] array) {
+        for (int[] line : array) {
+            for (int columb: line) {
+                System.out.print(columb+"\t");
+            }
+            System.out.println("");
+        }
+        System.out.println(" ");
+    }
 }

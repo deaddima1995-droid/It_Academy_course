@@ -8,5 +8,7 @@ public class Task4 {
     public static void main(String[] args) {
         int[][] array = new int[10][10];
         Task1.pasteRandomNumber(array);
+        Task1.writeArray(array);
+
     }
 }
