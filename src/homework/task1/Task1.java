@@ -37,6 +37,15 @@ public class Task1 {
             array[i] = (int) (Math.random() * ((max - min) + 1)) + min;
         }
     }
+    public static void pasteRandomNumber(int[][] array) {
+        int min = 0;
+        int max = 10;
+        for (int i = 0; i < array.length; i++) {
+            for (int j = 0; j < array[i].length; j++) {
+                array[i][j] = (int) (Math.random() * ((max - min) + 1)) + min;
+            }
+        }
+    }
 
     public static void writeArray(int[] array) {
         for (int cell : array) {
