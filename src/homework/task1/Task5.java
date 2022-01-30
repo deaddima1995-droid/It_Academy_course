@@ -8,9 +8,12 @@ package homework.task1;
 
 public class Task5 {
     public static void main(String[] args) {
-        int[][] matrix = new int[5][5];
+        int[][] matrix = {{1,0,0,0},{1,1,0,0},{1,1,1,0},{1,1,1,1}};
+        checkLowerTriangleMatrix(matrix);
     }
     public static void checkLowerTriangleMatrix(int[][] matrix) {
+        int iteration = 0;
+        int countZero = 0;
         for (int i = 0; i < matrix.length; i++) {
             if (matrix[i].length != matrix.length) {
                 System.out.println("Матрица не квадратная");
@@ -19,8 +22,25 @@ public class Task5 {
         }
         for (int i = 0; i < matrix.length; i++) {
             for (int j = 0; j < matrix[i].length; j++) {
-
+                if (matrix[i][j] == 0){
+                    countZero++;
+                }
+                iteration++;
             }
         }
+        if (iteration == countZero & iteration != 0) {
+            System.out.println("Матрица пуста");
+            return;
+        }
+        int k = 1;
+        for (int i = 0; i < matrix.length; i++, k++) {
+            for (int j = k; j < matrix[i].length; j++) {
+                if (matrix[i][j] != 0) {
+                    System.out.println("Матрица не треугольная");
+                    return;
+                }
+            }
+        }
+        System.out.println("Матрица треугольная нижняя");
     }
 }
