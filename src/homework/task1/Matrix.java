@@ -10,29 +10,27 @@ public class Matrix {
     public Matrix sumMatrix(Matrix matrixSecond) {
         if (matrix.length != matrixSecond.getMatrix().length) {
             System.out.println("Матрицы имеют разные размерности");
-            return matrixSecond;
+            return this;
         }
         for (int i = 0; i < matrix.length; i++) {
             for (int j = 0; j < matrix[i].length; j++) {
                 matrix[i][j] = matrix[i][j] + matrixSecond.getMatrix()[i][j];
             }
         }
-        matrixSecond.setMatrix(this.matrix);
-        return matrixSecond;
+        return this;
     }
 
     public Matrix diffMatrix(Matrix matrixSecond) {
         if (matrix.length != matrixSecond.getMatrix().length) {
             System.out.println("Матрицы имеют разные размерности");
-            return matrixSecond;
+            return this;
         }
         for (int i = 0; i < matrix.length; i++) {
             for (int j = 0; j < matrix[i].length; j++) {
                 matrix[i][j] = matrix[i][j] - matrixSecond.getMatrix()[i][j];
             }
         }
-        matrixSecond.setMatrix(this.matrix);
-        return matrixSecond;
+        return this;
     }
 
     public void pasteRandomNumberInMatrix(int min, int max) {
