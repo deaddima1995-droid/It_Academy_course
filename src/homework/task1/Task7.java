@@ -12,30 +12,28 @@ package homework.task1;
 public class Task7 {
 
     public static void main(String[] args) {
-        int[] array = {0,1,3,2,2,0,0,0,3,2};
-
-        //            19,20,29,24,17,27,17,15,17,14
-                        //3,1,1,10
-        //                13,11,4,13
-        //          10,9,7,8,11
-        //          21,20,0,18,21
-        /* 1) ищем максимальную сумма для каждного элемента массива слева и справа по одному элементу
-            Создаем массив с максимальной суммой , эквивалент длинне самого массива
-           2) выбираем максимальное число из суммы
-           3) обнуляем у нашего числа соседние числа +-1
-             *1 идем в пункт 1)
-         */
-
+        int[] array = {9,10,10,4,0,10,0,1,7,0,2,25};
+        int[] temp = sumMaxAdjacentNumbers(array);
         //Task1.pasteRandomNumber(array);
-        Task1.writeArray(array);
+       Task1.writeArray(array);
         Task1.writeArray(sumMaxAdjacentNumbers(array));
+        //makeZero(array,2);
+        //Task1.writeArray(array);
+        int our = sumMaxArrayWithOutAdjacentNumbers(array,temp);
+        System.out.println(our);
+
     }
-    public static int sumMaxArrayWithOutAdjacentNumbers(int[] array) {
+    public static int sumMaxArrayWithOutAdjacentNumbers(int[] array,int[] temp) {
         int sum = 0;
         if (max(array) == 0) {
             return 0;
         }
-        return 0;
+        int maxTempIndex = maxOfArray(temp);
+        sum += array[maxTempIndex];
+        makeZero(temp, maxTempIndex);
+        makeZero(array,maxTempIndex);
+
+        return sum + sumMaxArrayWithOutAdjacentNumbers(array,temp);
     }
     public static int[] sumMaxAdjacentNumbers(int[] array) {
         int[] maxArray = new int[array.length];
@@ -83,14 +81,25 @@ public class Task7 {
         return max;
     }
     public static int maxOfArray(int[] array) {
-
+        int max = Integer.MIN_VALUE;
+        int index = 0;
+        for (int i = 0; i < array.length; i++) {
+            int tmp = max;
+            max = Math.max(max,array[i]);
+            if (tmp < max) {
+                index = i;
+            }
+        }
+        return index;
     }
     public static void makeZero(int[] array, int index) {
-        if (--index > 0) {
-            array[--index] = 0;
+        int fIndex = index - 1;
+        int lIndex = index + 1;
+        if (fIndex >= 0) {
+            array[fIndex] = 0;
         }
-        if (++index < array.length - 10) {
-            array[++index] = 0;
+        if (lIndex <= array.length - 1) {
+            array[lIndex] = 0;
         }
         array[index] = 0;
     }
