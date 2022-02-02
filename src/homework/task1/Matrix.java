@@ -3,8 +3,9 @@ package homework.task1;
 public class Matrix {
     private int[][] matrix;
 
-    public Matrix(int degree) {
+    public Matrix(int degree,int min, int max) {
         this.matrix = new int[degree][degree];
+        pasteRandomNumberInMatrix(min,max);
     }
 
     public Matrix sumMatrix(Matrix matrixSecond) {
