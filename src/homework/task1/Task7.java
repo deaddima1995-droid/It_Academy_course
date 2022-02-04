@@ -12,7 +12,7 @@ package homework.task1;
 public class Task7 {
 
     public static void main(String[] args) {
-        int[] array = new int[10];
+        int[] array = {9,10,10,0,1,4,3,0,1};
         Task1.pasteRandomNumber(array);
 
         int[] temp = sumMaxAdjacentNumbers(array);
@@ -46,7 +46,7 @@ public class Task7 {
             int max = Integer.MIN_VALUE;
 
             for (int j = i; j < array.length; j++) {
-                if (j == i + 1 | j == i){
+                if (j == i + 1 | j == i - 1| j == i){
                     continue;
                 }
                 int tmp = max;
@@ -57,6 +57,7 @@ public class Task7 {
             }
         }
 //влево
+        int[] tempOfMax = new int[array.length];
         for (int i = array.length - 1; i >= 0; i--) {
             int max = Integer.MIN_VALUE;
 
@@ -67,12 +68,12 @@ public class Task7 {
                 int tmp = max;
                 max = Math.max(max,array[i] + array[j]);
                 if (tmp < max) {
-                    maxArray[i] += array[j];
+                    tempOfMax[i] = array[j];
                 }
             }
         }
         for (int i = 0; i < array.length; i++) {
-            maxArray[i] += array[i];
+            maxArray[i] += array[i] + tempOfMax[i];
         }
         return maxArray;
         }
