@@ -1,33 +1,41 @@
 package homework.task2.addition;
 
 public class Box {
-    private Integer length;
-    private Integer width;
-    private Integer height;
-    private String type;
+    private final Integer length;
+    private final Integer width;
+    private final Integer height;
+    private final String type;
 
         public Box(Integer length, Integer width, Integer height) {
+
             this.length = length;
             this.width = width;
             this.height = height;
+
             if (height == null || height == 0) {
                 this.type = "Envelope";
                 return;
             }
-            if (length != width || length != height || width != height) {
+            if (!length.equals(width) || !length.equals(height)) {
                 this.type = "Box";
                 return;
             }
             this.type = "Cube";
         }
 
-        public Box(Integer length, Integer width) {
-            this.length = length;
-            this.width = width;
-            this.height = null;
-            this.type = "Envelope";
-        }
-        public String getTypeOfBox() {
-            return this.type;
-        }
+    public String getType() {
+        return this.type;
+    }
+
+    public Integer getLength() {
+        return length;
+    }
+
+    public Integer getWidth() {
+        return width;
+    }
+
+    public Integer getHeight() {
+        return height;
+    }
 }
