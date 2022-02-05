@@ -36,9 +36,6 @@ public class Task3 {
         for (int value: data) {
             out += value;
         }
-        if (out == 0) {
-            return 0;
-        }
         return out / 5;
     }
     public static void writeArray() {
