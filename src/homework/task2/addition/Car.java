@@ -16,6 +16,10 @@ public class Car {
     public Car(String brand,String color) {
         this.brand = brand;
         setColor(color);
+
+        if (this.color == null) {
+            this.color = "Ржавый";
+        }
     }
 
     private String[] giveColorArray(String brand) {
