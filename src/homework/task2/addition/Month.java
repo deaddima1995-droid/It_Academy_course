@@ -1,4 +1,4 @@
-package homework.task2;
+package homework.task2.addition;
 
 public enum Month {
     JANUARY("January",1),
