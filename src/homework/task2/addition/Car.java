@@ -18,7 +18,7 @@ public class Car {
         setColor(color);
     }
 
-    public String[] giveColorArray(String brand) {
+    private String[] giveColorArray(String brand) {
 
         if (brand.equalsIgnoreCase("AUDI")) {
             return Arrays.copyOfRange(dataColor,0,3);
