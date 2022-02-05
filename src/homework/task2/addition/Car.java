@@ -5,13 +5,13 @@ import java.util.Arrays;
 public class Car {
     private final String brand;
     private String color;
-    private static String[] dataColor = {"Синий","Красный","Зеленый",
+    private final static String[] dataColor = {"Синий","Красный","Зеленый",
                                          "Оранжевый","Черный","Фиолетовый",
                                          "Желтый","Серый","Белый"};
 
     public Car() {
-        this.brand = "Audi";
-        this.color = "Синий";
+        this.brand = "Неизвесный";
+        this.color = "Ржавый";
     }
     public Car(String brand,String color) {
         this.brand = brand;
@@ -52,6 +52,7 @@ public class Car {
         for (String nextColor: giveColorArray(this.brand)) {
             if (nextColor.equalsIgnoreCase(color)) {
                 this.color = color;
+                break;
             }
         }
     }
