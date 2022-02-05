@@ -21,16 +21,21 @@ public class Car {
     public String[] giveColorArray(String brand) {
 
         if (brand.equalsIgnoreCase("AUDI")) {
-            return Arrays.copyOfRange(dataColor,0,4);
+            return Arrays.copyOfRange(dataColor,0,3);
         }
         if (brand.equalsIgnoreCase("BMW")) {
-            return Arrays.copyOfRange(dataColor,4,7);
+            return Arrays.copyOfRange(dataColor,4,6);
         }
         if (brand.equalsIgnoreCase("KIA")) {
-            return Arrays.copyOfRange(dataColor,9,10);
+            return Arrays.copyOfRange(dataColor,7,9);
         }
         return dataColor;
     }
+
+    public void showCar(){
+        System.out.println("Марка машины:\t"+this.brand+"\tЦвет:\t"+this.color);
+    }
+
     public String getBrand() {
         return brand;
     }

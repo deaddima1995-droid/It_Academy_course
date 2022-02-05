@@ -7,6 +7,11 @@ public class Task4 {
         Car audi = new Car("AUDI","синий");
         Car bmw = new Car("BMW","черный");
         Car kia = new Car("kia","белый");
+        audi.setColor("красный");
+        audi.showCar();
+        bmw.setColor("синий");
+        bmw.showCar();
+        kia.showCar();
 
     }
 }
