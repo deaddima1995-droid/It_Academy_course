@@ -5,8 +5,8 @@ import java.util.regex.Pattern;
 
 public class Task5 {
     public static void main(String[] args) {
-        String text = "Необходимо посссчитать колличессство ссслов в строке в которых буква встречается 3 и ссс более раза.";
-        Pattern pattern = Pattern.compile("\\b[а-я]*с{3}[а-я]*\\b");
+        String text = "Необходимо посссчитать колличессство ссслов в строке в которых буква встречается 3 и Ссс более раза.";
+        Pattern pattern = Pattern.compile("\\b[а-я]*[сС]{3}[а-я]*\\b");
         Matcher matcher = pattern.matcher(text);
 
         int result = 0;

@@ -8,6 +8,7 @@ public class Task4 {
         Car bmw = new Car("BMW","черный");
         Car kia = new Car("kia","белый");
         Car vaz = new Car();
+        vaz.setColor("голубой");
         vaz.showCar();
         audi.setColor("красный");
         audi.showCar();
