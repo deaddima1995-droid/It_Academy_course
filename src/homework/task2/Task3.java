@@ -1,47 +1,18 @@
 package homework.task2;
 
-import java.util.Arrays;
+import homework.task2.addition.Data;
 
 public class Task3 {
 
-    private static int[] data = new int[5];
-    private static int index = 0;
-
     public static void main(String[] args) {
-        addData(5);
-        addData(7);
-        addData(3);
-        addData(6);
-        addData(5);
-        writeArray();
-        addData(1);
-        writeArray();
-        addData(2);
-        writeArray();
-    }
-
-    public static void addData(int number) {
-        if (index >= 5) {
-            data = Arrays.copyOfRange(data,1,5);
-            data = Arrays.copyOf(data,5);
-            data[4] = number;
-
-            return;
-        }
-        data[index] = number;
-        index++;
-    }
-    public static int averageValueOfData() {
-        int out = 0;
-        for (int value: data) {
-            out += value;
-        }
-        return out / 5;
-    }
-    public static void writeArray() {
-        for (int value: data) {
-            System.out.print(value+"\t");
-        }
-        System.out.print("\n");
+        Data dataOfNumbers = new Data();
+        dataOfNumbers.addData(1);
+        dataOfNumbers.addData(5);
+        dataOfNumbers.addData(6);
+        dataOfNumbers.addData(8);
+        dataOfNumbers.addData(0);
+        dataOfNumbers.addData(1);
+        dataOfNumbers.writeArray();
+        System.out.println("Среднее значение:"+dataOfNumbers.averageValueOfData());
     }
 }
