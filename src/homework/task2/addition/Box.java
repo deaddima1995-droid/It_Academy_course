@@ -22,6 +22,12 @@ public class Box {
             }
             this.type = "Cube";
         }
+        public Box(String configuration) {
+            this.length = 0;
+            this.width = 0;
+            this.height = 0;
+            this.type = "Cube";
+        }
 
     public String getType() {
         return this.type;
