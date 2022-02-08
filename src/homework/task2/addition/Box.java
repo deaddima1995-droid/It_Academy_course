@@ -4,43 +4,63 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Box {
-    private final Integer length;
-    private final Integer width;
-    private final Integer height;
-    private final String type;
+    private Integer length;
+    private Integer width;
+    private Integer height;
+    private String type;
 
-        public Box(Integer length, Integer width, Integer height) {
-
+        public Box(int length, int width, int height) {
             this.length = length;
             this.width = width;
             this.height = height;
-
-            if (height == null || height == 0) {
-                this.type = "Envelope";
-                return;
-            }
-            if (!length.equals(width) || !length.equals(height)) {
-                this.type = "Box";
-                return;
-            }
-            this.type = "Cube";
+            setType();
         }
         public Box(String configuration) {
-            Pattern finder = Pattern.compile("(?i)Box[\\d{0,3]");
-            Matcher matcher = finder.matcher(configuration);
-            String boxer = matcher.group();
-            int[] data = new int[3];
-            int index = 0;
-            while (matcher.find()) {
-                data[index] = matcher.start();
-                index++;
+            Pattern patternOfBox = Pattern.compile("Box\\[(\\d+)+,?(\\d+)?,?(\\d+)?\\]",Pattern.CASE_INSENSITIVE);
+            Matcher matcherOfBox = patternOfBox.matcher(configuration);
+            Integer[] data = new Integer[3];
+            while (matcherOfBox.find()) {
+                for (int i = 0; i < 3; i++) {
+                    if (matcherOfBox.group(i + 1) == null) {
+                        data[i] = null;
+                        continue;
+                    }
+                    data[i] = Integer.parseInt(matcherOfBox.group(i + 1));
+                }
             }
-            this.length = 0;
-            this.width = 0;
-            this.height = 0;
-            this.type = "Cube";
+            this.length = data[0];
+            this.width = data[1];
+            this.height = data[2];
+            setType();
         }
-
+    private void setType() {
+        if (length == null) {
+            type = "Unknown";
+            return;
+        }
+        if (height == null & width == null) {
+            if (length == 0 ) {
+                type = "Unknown";
+                length = null;
+                return;
+            }
+            width = height = length;
+            type = "Cube";
+            return;
+        }
+        if (length.equals(width) & length.equals(height) & length != 0) {
+            type = "Cube";
+            return;
+        }
+        if (height == 0 || length == 0 || width == 0) {
+            type = "Envelope";
+            return;
+        }
+        this.type = "Box";
+    }
+    public void discover () {
+        System.out.println("Объект тип "+type+"\tx ="+length+"\ty ="+width+"\tz ="+height);
+    }
     public String getType() {
         return this.type;
     }
