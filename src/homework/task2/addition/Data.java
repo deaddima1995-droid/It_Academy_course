@@ -1,30 +1,36 @@
 package homework.task2.addition;
 
-import java.util.Arrays;
 
 public class Data {
     private int[] dataValue = new int[5];
     private int index = 0;
+    private boolean flag;
 
     public void addData(int number) {
-        if (index >= dataValue.length) {
-            dataValue = Arrays.copyOfRange(dataValue,1,index);
-            dataValue = Arrays.copyOf(dataValue,index);
-            dataValue[index - 1] = number;
-            return;
-        }
+        index = (index == dataValue.length)?0:index;
         dataValue[index] = number;
         index++;
-    }
-    public int averageValueOfData() {
-        if (index == 0) {
-            return 0;
+        if (!flag) {
+            flag = index >= dataValue.length;
         }
-        int out = 0;
+    }
+    public void averageValueOfData() {
+        if (index == 0 ) {
+            System.out.println(0);
+            return;
+        }
+        double out = 0;
+        String result;
         for (int value: dataValue) {
             out += value;
         }
-        return out / index;
+        if (flag) {
+            result = String.format("%.1f",out / dataValue.length);
+            System.out.println(result);
+            return;
+        }
+        result = String.format("%.1f",out / index);
+        System.out.println(result);
     }
     public void writeArray() {
         for (int value: dataValue) {

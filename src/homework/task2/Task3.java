@@ -7,12 +7,14 @@ public class Task3 {
     public static void main(String[] args) {
         Data dataOfNumbers = new Data();
         dataOfNumbers.addData(1);
+        dataOfNumbers.addData(2);
+        dataOfNumbers.addData(3);
+        dataOfNumbers.addData(4);
         dataOfNumbers.addData(5);
         dataOfNumbers.addData(6);
-        dataOfNumbers.addData(8);
-        dataOfNumbers.addData(0);
-        dataOfNumbers.addData(1);
-        dataOfNumbers.writeArray();
-        System.out.println("Среднее значение:"+dataOfNumbers.averageValueOfData());
+//        dataOfNumbers.addData(7);
+//        dataOfNumbers.addData(8);
+//        dataOfNumbers.writeArray();
+        dataOfNumbers.averageValueOfData();
     }
 }
