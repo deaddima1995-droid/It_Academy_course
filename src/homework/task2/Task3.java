@@ -11,10 +11,12 @@ public class Task3 {
         dataOfNumbers.addData(3);
         dataOfNumbers.addData(4);
         dataOfNumbers.addData(5);
+        dataOfNumbers.writeArray();
         dataOfNumbers.addData(6);
-//        dataOfNumbers.addData(7);
-//        dataOfNumbers.addData(8);
-//        dataOfNumbers.writeArray();
+        dataOfNumbers.writeArray();
+        dataOfNumbers.addData(7);
+        dataOfNumbers.writeArray();
+
         dataOfNumbers.averageValueOfData();
     }
 }
