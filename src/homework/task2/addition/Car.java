@@ -56,6 +56,29 @@ public class Car {
             }
         }
     }
+    enum Brand {
+        AUDI(new Colors[]{Colors.Black,Colors.Blue}),
+        BMW(new Colors[]{Colors.Grey}),
+        KIA(new Colors[]{Colors.Red});
 
+        Brand(Colors[] color) {
 
+        }
+    }
+    enum Colors {
+        Blue("Голубой"),
+        Red(""),
+        Green("color"),
+        Orange("color"),
+        Black("color"),
+        Violette("color"),
+        Yellow("color"),
+        Grey("color"),
+        White("color");
+        public final String color;
+
+        Colors(String color) {
+            this.color = color;
+        }
+    }
 }
