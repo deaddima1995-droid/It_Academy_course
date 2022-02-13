@@ -1,4 +1,4 @@
-package classwork;
+package classwork.Others_lessons;
 
 public class Phone {
     private int number;
