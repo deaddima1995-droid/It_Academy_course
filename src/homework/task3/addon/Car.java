@@ -2,16 +2,18 @@ package homework.task3.addon;
 
 import homework.task3.addon.properties.*;
 
+import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.Objects;
+import java.util.Random;
 
 public class Car {
     private final Model model;
     private final Integer yearOfManufacture;
     private final Engine engine;
     private Wheel wheel;
-    private final LinkedList<Option> options;
+    private final LinkedList<Option> options = new LinkedList<>();;
     private Color color;
 
 
@@ -20,7 +22,6 @@ public class Car {
         this.yearOfManufacture = yearOfManufacture;
         this.engine = engine;
         this.color = color;
-        this.options = new LinkedList<>();
         this.options.addAll(Arrays.asList(options));
     }
 
@@ -39,29 +40,28 @@ public class Car {
         this.wheel = wheel;
     }
 
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Car car = (Car) o;
-        return model == car.model && yearOfManufacture.equals(car.yearOfManufacture) && engine == car.engine && wheel == car.wheel && options.equals(car.options) && color == car.color;
+        return model == car.model && Objects.equals(yearOfManufacture, car.yearOfManufacture) && engine == car.engine;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(model, yearOfManufacture, engine, wheel, options, color);
+        return Objects.hash(model, yearOfManufacture, engine);
     }
 
     @Override
     public String toString() {
-        return "Car{" +
+        return "\nCar{" +
                 "model=" + model +
-                ", yearOfManufacture=" + yearOfManufacture +
+                ", year=" + yearOfManufacture +
+                ", color=" + color +
                 ", engine=" + engine +
                 ", wheel=" + wheel +
                 ", options=" + options +
-                ", color=" + color +
                 '}';
     }
 

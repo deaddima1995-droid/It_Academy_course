@@ -1,7 +1,14 @@
 package homework.task3.addon.properties;
 
 public enum Engine {
-    JZ("2.0");
+    LOW("1.8"),
+    COMMON("2.5"),
+    HIGH("3.0");
+
+    @Override
+    public String toString() {
+        return capacity;
+    }
 
     Engine(String capacity) {
         this.capacity = capacity;
