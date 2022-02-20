@@ -1,8 +1,7 @@
 package homework.task3;
 
-import homework.task3.addon.Car;
 import homework.task3.addon.Factory;
-import homework.task3.addon.properties.*;
+import homework.task3.addon.setting_car.*;
 
 public class Main {
     public static void main(String[] args) {

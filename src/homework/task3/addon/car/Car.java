@@ -1,19 +1,19 @@
-package homework.task3.addon;
+package homework.task3.addon.car;
 
-import homework.task3.addon.properties.*;
+import homework.task3.addon.setting_car.*;
 
-import java.time.LocalDate;
+
 import java.util.Arrays;
-import java.util.LinkedList;
+import java.util.LinkedHashSet;
 import java.util.Objects;
-import java.util.Random;
+
 
 public class Car {
     private final Model model;
     private final Integer yearOfManufacture;
     private final Engine engine;
     private Wheel wheel;
-    private final LinkedList<Option> options = new LinkedList<>();;
+    private final LinkedHashSet<Option> options;
     private Color color;
 
 
@@ -22,7 +22,12 @@ public class Car {
         this.yearOfManufacture = yearOfManufacture;
         this.engine = engine;
         this.color = color;
-        this.options.addAll(Arrays.asList(options));
+        if (options != null) {
+            this.options = new LinkedHashSet<>();
+            this.options.addAll(Arrays.asList(options));
+        } else {
+            this.options = new LinkedHashSet<>();
+        }
     }
 
     public void changeColor(Color color) {

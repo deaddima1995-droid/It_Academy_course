@@ -1,4 +1,4 @@
-package homework.task3.addon.properties;
+package homework.task3.addon.setting_car;
 
 public enum Engine {
     LOW("1.8"),

@@ -1,9 +1,10 @@
 package homework.task3.addon;
 
-import homework.task3.addon.properties.Color;
-import homework.task3.addon.properties.Engine;
-import homework.task3.addon.properties.Model;
-import homework.task3.addon.properties.Option;
+import homework.task3.addon.car.Car;
+import homework.task3.addon.setting_car.Color;
+import homework.task3.addon.setting_car.Engine;
+import homework.task3.addon.setting_car.Model;
+import homework.task3.addon.setting_car.Option;
 
 import java.util.ArrayList;
 import java.util.List;

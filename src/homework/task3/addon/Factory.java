@@ -1,6 +1,7 @@
 package homework.task3.addon;
 
-import homework.task3.addon.properties.*;
+import homework.task3.addon.car.Car;
+import homework.task3.addon.setting_car.*;
 
 
 import java.util.Arrays;
