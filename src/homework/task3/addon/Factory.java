@@ -15,11 +15,11 @@ public class Factory {
     private final LinkedHashSet<Wheel> wheels = new LinkedHashSet<>();
     public final Storage storageOfFactory;
 
-    public Factory(Model[] models,Engine[] engines, Color[] colors, Wheel[] wheels) {
-        this.models.addAll(Arrays.asList(models));
-        this.engines.addAll(Arrays.asList(engines));
-        this.colors.addAll(Arrays.asList(colors));
-        this.wheels.addAll(Arrays.asList(wheels));
+    public Factory() {
+        this.models.addAll(Arrays.asList(Model.values()));
+        this.engines.addAll(Arrays.asList(Engine.values()));
+        this.colors.addAll(Arrays.asList(Color.values()));
+        this.wheels.addAll(Arrays.asList(Wheel.values()));
         storageOfFactory = new Storage();
 
     }
@@ -31,14 +31,5 @@ public class Factory {
         System.out.println("Диски"+wheels);
     }
 
-    protected Car TakeCar(Model model, Integer yearOfManufacture, Engine engine, Color color , Option[] options) {
-        List<Car> list = storageOfFactory.getStorageCar();
-        for (Car car: list) {
-            if (car.equals(new Car(model, yearOfManufacture, engine, color , options))) {
-                storageOfFactory.remove(car);
-                return car;
-            }
-        }
-        return null;
-    }
+
 }

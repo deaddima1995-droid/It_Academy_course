@@ -1,5 +1,6 @@
 package homework.task3.addon.car;
 
+import homework.task3.addon.Factory;
 import homework.task3.addon.setting_car.*;
 
 
@@ -17,6 +18,14 @@ public class Car {
     private Color color;
 
 
+    public Car () {
+        this.model = Model.CADDY;
+        this.yearOfManufacture = 2022;
+        this.engine = Engine.COMMON;
+        this.wheel = Wheel.R16;
+        this.color = Color.RED;
+        this.options = new LinkedHashSet<>();
+    }
     public Car(Model model, Integer yearOfManufacture, Engine engine, Color color , Option[] options) {
         this.model = model;
         this.yearOfManufacture = yearOfManufacture;
