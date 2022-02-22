@@ -3,13 +3,9 @@ package homework.task3.addon.servise;
 import homework.task3.addon.car.Car;
 import homework.task3.addon.setting_car.Color;
 
-public class PaintServise<C> extends Servise{
-    public PaintServise(Car car) {
-        super(car);
-    }
+public class PaintServise extends Servise{
 
-    @Override
-    public void change(Enum enums) {
-        this.car.changeColor((Color) enums);
+    public <T extends Car> void change(T car,Color color) {
+        car.changeColor(color);
     }
 }

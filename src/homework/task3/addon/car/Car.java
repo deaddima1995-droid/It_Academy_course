@@ -1,6 +1,6 @@
 package homework.task3.addon.car;
 
-import homework.task3.addon.Factory;
+import homework.task3.addon.factory.Factory;
 import homework.task3.addon.setting_car.*;
 
 
@@ -18,7 +18,7 @@ public class Car {
     private Color color;
 
 
-    public Car () {
+    public Car (Factory factory) {
         this.model = Model.CADDY;
         this.yearOfManufacture = 2022;
         this.engine = Engine.COMMON;

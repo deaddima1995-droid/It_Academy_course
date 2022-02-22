@@ -10,10 +10,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Storage {
-    public List<Car> getStorageCar() {
-        return storageCar;
-    }
-
     private final List<Car> storageCar = new ArrayList<>();
 
     public Storage() {
@@ -30,8 +26,12 @@ public class Storage {
         return storageCar.get(storageCar.indexOf(car));
     }
 
+    public List<Car> getStorageCar() {
+        return storageCar;
+    }
+
     public void remove(Car car) {
-        this.storageCar.remove(car);
+        this. storageCar.remove(car);
     }
     @Override
     public String toString() {
