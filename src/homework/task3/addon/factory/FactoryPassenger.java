@@ -1,4 +1,9 @@
 package homework.task3.addon.factory;
 
-public class FactoryPassenger extends Factory{
+import homework.task3.addon.servise.Servise;
+
+public class FactoryPassenger{
+
+
+	
 }
