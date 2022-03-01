@@ -8,8 +8,8 @@ public class Task4 {
 
 	public static void main(String[] args) {
 		Reader read = new Reader();
-		List<Integer> list = read.readInt("стоп"); 
-		read.readLine("статус");
+		List<Integer> list = read.readInt("СЃС‚РѕРї"); 
+		read.readLine("СЃС‚Р°С‚СѓСЃ");
 		read.close();
 		Collections.sort(list);
 		System.out.println(list);
