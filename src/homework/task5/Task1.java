@@ -6,7 +6,7 @@ public class Task1 {
 
 	public static void main(String[] args) {
 		Reader read = new Reader();
-		read.readInt("");
+		read.readIntList("");
 	}
 	
 

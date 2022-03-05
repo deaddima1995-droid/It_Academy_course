@@ -8,7 +8,7 @@ public class Task3 {
 
 	public static void main(String[] args) {
 		Reader read = new Reader();
-		List<Integer> list = read.readInt("стоп");
+		List<Integer> list = read.readIntList("стоп");
 		Double sum = 0d;
 		for(Integer number : list) {
 		    sum += number;

@@ -4,6 +4,7 @@ package homework.task5.util;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,7 +16,7 @@ public class Reader {
 		String text;
 		try {
 			while((text = reader.readLine()) != null ) {
-				if (text.equalsIgnoreCase("статус")) {
+				if (text.equalsIgnoreCase(stop)) {
 					break;
 				}
 				System.out.println(text);
@@ -25,6 +26,7 @@ public class Reader {
 				e.printStackTrace();
 		}
 	}
+	
 	
 	public String readLine() {
 		String text = new String();
@@ -36,7 +38,7 @@ public class Reader {
 		return text;
 	}
 	
-	public List<Integer> readInt(String stop) {
+	public List<Integer> readIntList(String stop) {
 		List<Integer> list = new ArrayList<>();
 		String text;
 		
@@ -65,5 +67,16 @@ public class Reader {
 		} catch (IOException e){
 			e.printStackTrace();
 		}
+	}
+	
+	public Double readDouble() {
+		Double out = null;
+		try {
+			out = Double.parseDouble(reader.readLine());
+		} catch (NumberFormatException | IOException e) {
+			System.out.println("Вы ввели не число");
+			return readDouble();
+		}
+		return out;
 	}
 }

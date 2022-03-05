@@ -8,7 +8,7 @@ public class Task4 {
 
 	public static void main(String[] args) {
 		Reader read = new Reader();
-		List<Integer> list = read.readInt("стоп"); 
+		List<Integer> list = read.readIntList("стоп"); 
 		read.readLine("статус");
 		read.close();
 		Collections.sort(list);
