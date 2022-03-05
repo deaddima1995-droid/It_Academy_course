@@ -8,7 +8,7 @@ public class Task5 {
 	public static void main(String[] args) {
 		Reader reader = new Reader();
 		while(true) {
-			System.out.println("Ââåäèòå âûðàæåíèå:");	
+			System.out.println("Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ Ð²Ñ‹Ñ€Ð°Ð¶ÐµÐ½Ð¸Ðµ:");	
 			System.out.println(calculate(reader));
 		}
 		
@@ -23,14 +23,14 @@ public class Task5 {
 			case "*" -> (numberA * numberB) + "";
 			case "/" -> {
 				if (numberB == 0) {
-				yield "Íà íîëü äåëèòü íåëüçÿ!";
+				yield "ÐÐ° Ð½Ð¾Ð»ÑŒ Ð´ÐµÐ»Ð¸Ñ‚ÑŒ Ð½ÐµÐ»ÑŒÐ·Ñ!";
 				}
 				yield (numberA / numberB) + "";
 			}
 			case "+" -> (numberA + numberB) + "";
 			case "-" -> (numberA - numberB) + "";
 			
-			default -> "Òû ââåë ôèãíþ";
+			default -> "Ð¢Ñ‹ Ð²Ð²ÐµÐ» Ñ„Ð¸Ð³Ð½ÑŽ";
 		};
 	}
 

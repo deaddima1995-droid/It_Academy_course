@@ -14,7 +14,7 @@ public class Task3 {
 		
 		while(true) {
 		sum = 0d;
-		list.addAll(reader.readIntList("стоп"));
+		list.addAll(reader.readIntList("СЃС‚РѕРї"));
 		
 		for(Integer number : list) {
 		    sum += number;
