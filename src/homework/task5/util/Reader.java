@@ -72,10 +72,14 @@ public class Reader {
 	public Double readDouble() {
 		Double out = null;
 		try {
+			while (out == null) {
 			out = Double.parseDouble(reader.readLine());
+			if (out == null) {
+				System.out.println("Вы ввели не число");
+			}
+			}
 		} catch (NumberFormatException | IOException e) {
-			System.out.println("Вы ввели не число");
-			return readDouble();
+			e.printStackTrace();
 		}
 		return out;
 	}
