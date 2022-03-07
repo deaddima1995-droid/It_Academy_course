@@ -1,5 +1,19 @@
 package homework.task6.util;
 
-public class Country {
-	private final Army army;
+import java.util.ArrayList;
+import java.util.List;
+
+public class Country implements Runnable{
+	private final List<Robot> army;
+
+	public Country() {
+		super();
+		this.army = new ArrayList<>();
+	}
+
+	@Override
+	public void run() {
+		// TODO Auto-generated method stub
+		
+	}
 }
