@@ -15,10 +15,36 @@ public class Factory implements Runnable{
 		int index = rnd.nextInt(PartsOfRobot.values().length);
 		storage.add(PartsOfRobot.values()[index]);
 	}
-
+	
+	public PartsOfRobot takePartOfRobot(PartsOfRobot parts) {
+		if (!storage.isEmpty()) {
+			for (PartsOfRobot partsOfRobot : storage) {
+				if (partsOfRobot.equals(parts)) {
+					storage.remove(partsOfRobot);
+					return partsOfRobot;
+				}
+			}
+		}
+		return null;
+	}
 
 	@Override
 	public void run() {
-		createRandomPartOfRobot();
+		while(true) {
+			createRandomPartOfRobot();
+			try {
+				Thread.sleep(5000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
 	}
+
+	@Override
+	public String toString() {
+		return "Factory [storage=" + storage + "]";
+	}
+	
+	
 }

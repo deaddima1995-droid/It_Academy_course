@@ -4,12 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Country implements Runnable{
-	private final List<Robot> army;
-
-	public Country() {
-		super();
-		this.army = new ArrayList<>();
-	}
+	private final List<Robot> army = new ArrayList<>();
 
 	@Override
 	public void run() {
