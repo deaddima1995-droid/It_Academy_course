@@ -1,4 +1,4 @@
-package homework.task6.util.parts;
+package homework.task6.util;
 
 public enum PartsOfRobot {
 	HEAD("Голова"),

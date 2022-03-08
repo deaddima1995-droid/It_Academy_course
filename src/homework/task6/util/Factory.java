@@ -4,14 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import homework.task6.util.parts.PartsOfRobot;
-
 public class Factory implements Runnable{
-	Random rnd = new Random();
+	private Random rnd = new Random();
 	private List<PartsOfRobot> storage = new ArrayList<>();
     	
 	
-	public void createRandomPartOfRobot() {
+	private void createRandomPartOfRobot() {
 		int index = rnd.nextInt(PartsOfRobot.values().length);
 		storage.add(PartsOfRobot.values()[index]);
 	}
@@ -30,10 +28,12 @@ public class Factory implements Runnable{
 
 	@Override
 	public void run() {
-		while(true) {
-			createRandomPartOfRobot();
+		int i = 0;
+		while(i < 100) {	
 			try {
-				Thread.sleep(5000);
+				createRandomPartOfRobot();
+				i++;
+				Thread.sleep(50);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
