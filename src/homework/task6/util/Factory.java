@@ -3,6 +3,9 @@ package homework.task6.util;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.Set;
+
+import homework.task6.Country;
 
 public class Factory implements Runnable{
 	private Random rnd = new Random();
@@ -12,28 +15,33 @@ public class Factory implements Runnable{
 	private void createRandomPartOfRobot() {
 		int index = rnd.nextInt(PartsOfRobot.values().length);
 		storage.add(PartsOfRobot.values()[index]);
+		System.out.println(this+" make "+PartsOfRobot.values()[index]);
 	}
 	
-	public PartsOfRobot takePartOfRobot(PartsOfRobot parts) {
+	public void getPartOfRobot(Country country) {
+		Set<PartsOfRobot> setParts = country.getSetStorage();
+		List<PartsOfRobot> removingList = new ArrayList<>();
 		if (!storage.isEmpty()) {
 			for (PartsOfRobot partsOfRobot : storage) {
-				if (partsOfRobot.equals(parts)) {
-					storage.remove(partsOfRobot);
-					return partsOfRobot;
-				}
+				if (!setParts.contains(partsOfRobot)) {
+					removingList.add(partsOfRobot);
+					setParts.add(partsOfRobot);
+					System.out.println(country.getName()+" получила: "+partsOfRobot.name());
+				} 
 			}
+			storage.removeAll(removingList);
+		} else {
+			System.out.println(country.getName()+" ничего не получила");
 		}
-		return null;
+		country.addToStoragePartsOfRobot(setParts);
 	}
 
 	@Override
 	public void run() {
-		int i = 0;
-		while(i < 100) {	
+		while(true) {
 			try {
 				createRandomPartOfRobot();
-				i++;
-				Thread.sleep(50);
+				Thread.sleep(1000);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
