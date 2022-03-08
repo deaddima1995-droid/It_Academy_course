@@ -13,20 +13,33 @@ import homework.task6.util.Robot;
 
 public class Country implements Runnable{
 	private final String name;
+	private static final int MAX_ARMY = 2;
 	private final List<Robot> army = new ArrayList<>();
 	private volatile static Factory FACTORY = new Factory();
 	private final Set<PartsOfRobot> storage = new HashSet<>();
 	
 
-	public static void main(String[] args) {
-		Thread russia = new Thread(new Country("Russia"));
-		Thread usa = new Thread(new Country("USA"));
+	public static void main(String[] args) throws InterruptedException {
+		Country papua = new Country("Папуасия");
+		Country potatoes = new Country("Картофиляндия");
+		Thread papuaThread = new Thread(papua);
+		Thread potatoesThread = new Thread(potatoes);
 		Thread factory = new Thread(FACTORY);
+	
+		
 		
 		factory.start();
-		usa.start();
-		russia.start();
-		
+		potatoesThread.start();
+		papuaThread.start();
+		factory.join();
+		potatoesThread.join();
+		papuaThread.join();
+		for (int i = 0; i < 10; i++) {
+			Thread.sleep(1000);
+			System.out.println("Поток выполняется");
+		}
+
+		System.out.println("Поток закончился");
 	}
 	
 	public void checkFactoryAndCreateRobot() {
@@ -43,17 +56,11 @@ public class Country implements Runnable{
 	
 	@Override
 	public void run() {
-		while(army.size() != 20) {
-		//System.out.println(this.name+" старт");
-		checkFactoryAndCreateRobot();
-		try {
-			Thread.sleep(1000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		while(army.size() <= MAX_ARMY) {
+			checkFactoryAndCreateRobot();
 		}
-		}
-		System.out.println(this.name+" имеет 20 роботов");
+		System.out.println(this.name+" имеет "+MAX_ARMY+" роботов");
+		
 		
 	}
 
@@ -72,5 +79,9 @@ public class Country implements Runnable{
 
 	public String getName() {
 		return name;
+	}
+
+	public Integer getArmy() {
+		return army.size();
 	}
 }
