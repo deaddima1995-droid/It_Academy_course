@@ -52,4 +52,9 @@ public class Country implements Runnable {
 			System.out.println(this.name + " имеет " + this.army.size() + " роботов");
 		}
 	}
+
+	@Override
+	public String toString() {
+		return "Country =" + name + ", army=" + army + "]";
+	}
 }
