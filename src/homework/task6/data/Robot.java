@@ -1,4 +1,4 @@
-package homework.task6.util;
+package homework.task6.data;
 
 public class Robot {
 	private static int counterId = 0;
