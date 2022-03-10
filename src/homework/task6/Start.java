@@ -29,8 +29,10 @@ public class Start {
 
 		if (yganda.getArmy() > papuasia.getArmy()) {
 			System.out.println("Уганда победила");
+			System.out.println(yganda);
 		} else if (yganda.getArmy() < papuasia.getArmy()) {
 			System.out.println("Папуасы победили");
+			System.out.println(papuasia);
 		} else {
 			System.out.println("Мой код херня");
 		}
