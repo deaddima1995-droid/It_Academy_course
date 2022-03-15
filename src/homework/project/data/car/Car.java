@@ -40,6 +40,10 @@ public class Car {
 		this.color = color;
 	}
 	
+	public <T extends Car> T createCar(T car) {
+		return (T) new Car(null,null,2020,null,null,null);
+	}
+	
 	public void changeWheel(Wheel wheel) {
 		this.wheel = wheel;
 	}

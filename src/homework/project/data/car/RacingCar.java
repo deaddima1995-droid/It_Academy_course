@@ -30,6 +30,10 @@ public class RacingCar extends Car {
 	public Turbo getTurbo() {
 		return turbo;
 	}
+	
+	public <T extends Car> T createCar(T car) {
+		return (T) new RacingCar(null,null,2021,null,null,null, null);
+	}
 
 	public void setTurbo(Turbo turbo) {
 		this.turbo = turbo;
