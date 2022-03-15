@@ -13,23 +13,20 @@ public class Factory <T extends Car>{
 	private final Engine[] engines;
 	private final Color[] colors;
 	private final Wheel[] wheels;
-	private final List<T> storage;
+	private final Storage<T> storage;
 	
 	public Factory () {
 		this.models = Model.values();
 		this.engines = Engine.values();
 		this.colors = Color.values();
 		this.wheels = Wheel.values();
-		this.storage = new ArrayList<>();
+		this.storage = new Storage<T>();
 	}
 	
 	public void createCar() {
-		
+		storage.addToStorage(T);
 	}
 	
-	@SuppressWarnings("unchecked")
-	public void takeCar() {
-		System.out.println((T) storage.get(0));
-	}
+
 	
 }
