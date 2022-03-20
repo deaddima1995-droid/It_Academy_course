@@ -4,16 +4,12 @@ package homework.project.data;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 import homework.project.data.car.Car;
 import homework.project.data.car.car_data.change_data.Color;
-import homework.project.data.car.car_data.change_data.Option;
 import homework.project.data.car.car_data.change_data.Wheel;
-import homework.project.data.car.car_data.unchange_data.Engine;
-import homework.project.data.car.car_data.unchange_data.Model;
+import homework.project.data.factory.CarBuilder;
 import homework.project.data.factory.CargoFactory;
-import homework.project.data.factory.Factory;
 import homework.project.data.factory.RacingFactory;
 import homework.project.data.factory.TrophyFactory;
 import homework.project.data.service.ColorServise;
@@ -33,8 +29,8 @@ public class CarSaler {
 			WheelServise pitStop, 
 			OptionServise optionServise, 
 			RacingFactory racingFactory,
-			TrophyFactory trophyFactory, 
-			CargoFactory cargoFactory
+			TrophyFactory trophyFactory,
+			CargoFactory cargoFactory		
 	) {
 		this.painter = painter;
 		this.pitStop = pitStop;
@@ -43,8 +39,21 @@ public class CarSaler {
 		this.cargoFactory = cargoFactory;
 	}
 
-	public void takeOrder(Color color, Model model, Wheel wheel, Engine engine, Option[] options) {
-		
+	public Car takeOrder(CarBuilder builder) {
+		if (builder.getType().equals("RacingCar")) {
+			return racingFactory.createCar(builder);
+		}
+		if (builder.getType().equals("CargoCar")) {
+			return cargoFactory.createCar(builder);
+		}
+		if (builder.getType().equals("TrophyCar")) {
+			return trophyFactory.createCar(builder);
+		}
+		return null;
+	}
+	
+	public void addCarToStorage(Car car) {
+		storage.add(car);
 	}
 
 	public void changeColorCar(Car car, Color color) {
