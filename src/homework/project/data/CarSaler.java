@@ -29,8 +29,13 @@ public class CarSaler {
 	private final CargoFactory cargoFactory;
 	private final List<Car> storage = new ArrayList<>();
 	
-	public CarSaler(ColorServise painter, WheelServise pitStop, OptionServise optionServise, RacingFactory racingFactory,
-			TrophyFactory trophyFactory, CargoFactory cargoFactory) {
+	public CarSaler(ColorServise painter, 
+			WheelServise pitStop, 
+			OptionServise optionServise, 
+			RacingFactory racingFactory,
+			TrophyFactory trophyFactory, 
+			CargoFactory cargoFactory
+	) {
 		this.painter = painter;
 		this.pitStop = pitStop;
 		this.racingFactory = racingFactory;
