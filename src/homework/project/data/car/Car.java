@@ -1,36 +1,28 @@
 package homework.project.data.car;
 
+import java.time.LocalDate;
 import java.util.Set;
 
 import homework.project.data.car.car_data.*;
+import homework.project.data.car.car_data.change_data.Color;
+import homework.project.data.car.car_data.change_data.Option;
+import homework.project.data.car.car_data.change_data.Wheel;
+import homework.project.data.car.car_data.unchange_data.Engine;
+import homework.project.data.car.car_data.unchange_data.Model;
 
 
-public class Car {
+public abstract class Car {
 	private Color color;
 	private final Model model;
 	private final int year;
 	private Wheel wheel;
 	private final Engine engine;
 	private final Set<Option> options;
-	/**
-	 * @param color
-	 * @param model
-	 * @param year
-	 * @param wheel
-	 * @param engine
-	 * @param options
-	 */
-	protected Car(
-			Color color, 
-			Model model, 
-			int year, 
-			Wheel wheel, 
-			Engine engine, 
-			Set<Option> options
-	) {
+	
+	protected Car(Color color, Model model, Wheel wheel, Engine engine, Set<Option> options) {
 		this.color = color;
 		this.model = model;
-		this.year = year;
+		this.year = LocalDate.now().getYear();
 		this.wheel = wheel;
 		this.engine = engine;
 		this.options = options;
@@ -40,19 +32,15 @@ public class Car {
 		this.color = color;
 	}
 	
-	public <T extends Car> T createCar(T car) {
-		return (T) new Car(null,null,2020,null,null,null);
-	}
-	
 	public void changeWheel(Wheel wheel) {
 		this.wheel = wheel;
 	}
 	
-	public void changeOption(Set<Option> options, boolean add) {
-		if (add) {
-			this.options.addAll(options);
-			return;
-		}
+	public void addOption(Set<Option> options) {
+		this.options.addAll(options);
+	}
+	
+	public void deleteOption(Set<Option> options) {
 		this.options.removeAll(options);
 	}
 

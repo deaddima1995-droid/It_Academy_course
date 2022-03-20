@@ -1,5 +1,5 @@
 package homework.project.data.service;
 
-public interface Service {
+public class Service {
 
 }

@@ -3,21 +3,20 @@ package homework.project.data.car;
 import java.util.Set;
 
 import homework.project.data.car.car_data.*;
+import homework.project.data.car.car_data.change_data.Color;
+import homework.project.data.car.car_data.change_data.Option;
+import homework.project.data.car.car_data.change_data.Wheel;
+import homework.project.data.car.car_data.realize_type.Turbo;
+import homework.project.data.car.car_data.unchange_data.Engine;
+import homework.project.data.car.car_data.unchange_data.Model;
 
 
 public class RacingCar extends Car {
 	private Turbo turbo;
 
-	public RacingCar(
-			Color color, 
-			Model model, 
-			int year, 
-			Wheel wheel, 
-			Engine engine, 
-			Set<Option> options,
-			Turbo turbo
+	public RacingCar(Color color, Model model, Wheel wheel, Engine engine, Set<Option> options,Turbo turbo
 	) {
-		super(color, model, year, wheel, engine, options);
+		super(color, model, wheel, engine, options);
 		this.turbo = turbo;
 	}
 
@@ -31,9 +30,6 @@ public class RacingCar extends Car {
 		return turbo;
 	}
 	
-	public <T extends Car> T createCar(T car) {
-		return (T) new RacingCar(null,null,2021,null,null,null, null);
-	}
 
 	public void setTurbo(Turbo turbo) {
 		this.turbo = turbo;
