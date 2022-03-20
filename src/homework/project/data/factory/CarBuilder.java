@@ -2,7 +2,6 @@ package homework.project.data.factory;
 
 import java.util.Set;
 
-import homework.project.data.car.RacingCar;
 import homework.project.data.car.car_data.change_data.Color;
 import homework.project.data.car.car_data.change_data.Option;
 import homework.project.data.car.car_data.change_data.Wheel;

@@ -56,6 +56,11 @@ public class CarSaler {
 		storage.add(car);
 	}
 
+	@Override
+	public String toString() {
+		return "CarSaler [" + (storage != null ? "storage=" + storage : "") + "]";
+	}
+
 	public void changeColorCar(Car car, Color color) {
 		painter.changeColor(car, color);
 	}

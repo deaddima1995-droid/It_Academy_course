@@ -46,11 +46,11 @@ public abstract class Car {
 
 	@Override
 	public String toString() {
-		return "Car [" + (color != null ? "color=" + color + ", " : "") + (model != null ? "model=" + model + ", " : "")
-				+ "year=" + year + ", " + (wheel != null ? "wheel=" + wheel + ", " : "")
-				+ (engine != null ? "engine=" + engine + ", " : "") + (options != null ? "options=" + options : "")
-				+ "]";
+		return "Car [color=" + color + ", model=" + model + ", year=" + year + ", wheel=" + wheel + ", engine=" + engine
+				+ ", options=" + options + "]";
 	}
+
+	
 	
 	
 }

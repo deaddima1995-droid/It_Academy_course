@@ -2,11 +2,12 @@ package homework.project;
 
 import homework.project.data.CarSaler;
 import homework.project.data.car.Car;
-import homework.project.data.car.RacingCar;
-import homework.project.data.car.TrophyCar;
+
 import homework.project.data.car.car_data.change_data.Color;
 import homework.project.data.car.car_data.change_data.Option;
 import homework.project.data.car.car_data.change_data.Wheel;
+import homework.project.data.car.car_data.realize_type.Cargo;
+import homework.project.data.car.car_data.realize_type.Drive;
 import homework.project.data.car.car_data.realize_type.Turbo;
 import homework.project.data.car.car_data.unchange_data.Engine;
 import homework.project.data.car.car_data.unchange_data.Model;
@@ -16,9 +17,7 @@ import homework.project.data.factory.RacingFactory;
 import homework.project.data.factory.TrophyFactory;
 import homework.project.data.service.ColorServise;
 import homework.project.data.service.OptionServise;
-import homework.project.data.service.Service;
 import homework.project.data.service.WheelServise;
-import homework.task2.addition.Box;
 
 public class Main {
 
@@ -32,12 +31,14 @@ public class Main {
 		TrophyFactory trophyFactory = new TrophyFactory();
 		
 		CarSaler saler = new CarSaler(colorServise, wheelServise, optionServise, raceFactory, trophyFactory, cargoFactory);
+		
 		Car car = saler.takeOrder(new CarBuilder(Color.BLUE, Model.CADDY, 2022, Wheel.R18, Engine.HIGH, null, Turbo.MAX));
+		Car tCar = saler.takeOrder(new CarBuilder(Color.BLUE, Model.PASSAT, 2022, Wheel.R16, Engine.MEDIUM, null, Drive.FULL));
+		Car cCar = saler.takeOrder(new CarBuilder(Color.WHITE, Model.CADDY, 2022, Wheel.R19, Engine.HIGH, null, Cargo.MATERIAL));
+		saler.addCarToStorage(tCar);
+		saler.addCarToStorage(cCar);
 		saler.addCarToStorage(car);
-		raceFactory.addCar(car);
-		System.out.println((RacingCar) car);
-		saler.changeColorCar(car, Color.BLACK);
-		System.out.println(raceFactory);
+		System.out.println(saler);
 		
 	}
 
