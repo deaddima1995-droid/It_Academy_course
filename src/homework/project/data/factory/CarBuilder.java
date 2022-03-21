@@ -1,5 +1,8 @@
 package homework.project.data.factory;
 
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.Set;
 
 import homework.project.data.car.car_data.change_data.Color;
@@ -12,10 +15,9 @@ import homework.project.data.car.car_data.unchange_data.Engine;
 import homework.project.data.car.car_data.unchange_data.Model;
 
 public class CarBuilder {
-	private final String type;
+	private String type;
 	private final Color color;
 	private final Model model;
-	private final int year;
 	private final Wheel wheel;
 	private final Engine engine;
 	private final Set<Option> options;
@@ -23,38 +25,30 @@ public class CarBuilder {
 	private Turbo turbo;
 	private Drive drive;
 	
-	public CarBuilder(Color color, Model model, int year, Wheel wheel, Engine engine, Set<Option> options,
-			Cargo cargo) {
+	private CarBuilder(Color color, Model model, Wheel wheel, Engine engine, Option[] options) {
 		this.color = color;
 		this.model = model;
-		this.year = year;
 		this.wheel = wheel;
 		this.engine = engine;
-		this.options = options;
-		this.cargo = cargo;
+		this.options = Set.of(options);
+	}
+	
+	public CarBuilder(Color color, Model model, Wheel wheel, Engine engine, Option[] options,
+			Cargo cargo) {
+		this(color, model, wheel, engine, options);
 		this.type = "CargoCar";
 	}
 	
-	public CarBuilder(Color color, Model model, int year, Wheel wheel, Engine engine, Set<Option> options,
+	public CarBuilder(Color color, Model model, Wheel wheel, Engine engine, Option[] options,
 			Turbo turbo) {
-		this.color = color;
-		this.model = model;
-		this.year = year;
-		this.wheel = wheel;
-		this.engine = engine;
-		this.options = options;
+		this(color, model, wheel, engine, options);
 		this.turbo = turbo;
 		this.type = "RacingCar";
 	}
 
-	public CarBuilder(Color color, Model model, int year, Wheel wheel, Engine engine, Set<Option> options,
+	public CarBuilder(Color color, Model model, Wheel wheel, Engine engine, Option[] options,
 			Drive drive) {
-		this.color = color;
-		this.model = model;
-		this.year = year;
-		this.wheel = wheel;
-		this.engine = engine;
-		this.options = options;
+		this(color, model, wheel, engine, options);
 		this.drive = drive;
 		this.type = "TrophyCar";
 	}
@@ -67,10 +61,6 @@ public class CarBuilder {
 		return model;
 	}
 
-	public int getYear() {
-		return year;
-	}
-
 	public Wheel getWheel() {
 		return wheel;
 	}
@@ -81,6 +71,10 @@ public class CarBuilder {
 
 	public Set<Option> getOptions() {
 		return options;
+	}
+	
+	public Option[] getOptionsAsArray() {
+		return (Option[]) options.toArray();
 	}
 
 	public Cargo getCargo() {

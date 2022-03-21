@@ -31,10 +31,11 @@ public class Main {
 		TrophyFactory trophyFactory = new TrophyFactory();
 		
 		CarSaler saler = new CarSaler(colorServise, wheelServise, optionServise, raceFactory, trophyFactory, cargoFactory);
+		Option[] options = {Option.AUDIO, Option.BLUETOOTH , Option.CONDITIONER }; 
 		
-		Car car = saler.takeOrder(new CarBuilder(Color.BLUE, Model.CADDY, 2022, Wheel.R18, Engine.HIGH, null, Turbo.MAX));
-		Car tCar = saler.takeOrder(new CarBuilder(Color.BLUE, Model.PASSAT, 2022, Wheel.R16, Engine.MEDIUM, null, Drive.FULL));
-		Car cCar = saler.takeOrder(new CarBuilder(Color.WHITE, Model.CADDY, 2022, Wheel.R19, Engine.HIGH, null, Cargo.MATERIAL));
+		Car car = saler.takeOrder(new CarBuilder(Color.BLUE, Model.CADDY, Wheel.R18, Engine.HIGH, options , Turbo.MAX));
+		Car tCar = saler.takeOrder(new CarBuilder(Color.BLUE, Model.PASSAT, Wheel.R16, Engine.MEDIUM, options, Drive.FULL));
+		Car cCar = saler.takeOrder(new CarBuilder(Color.WHITE, Model.CADDY, Wheel.R19, Engine.HIGH, options, Cargo.MATERIAL));
 		saler.addCarToStorage(tCar);
 		saler.addCarToStorage(cCar);
 		saler.addCarToStorage(car);

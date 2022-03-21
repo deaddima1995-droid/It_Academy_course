@@ -1,17 +1,24 @@
 package homework.project.data.factory;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import homework.project.data.car.Car;
 import homework.project.data.car.CargoCar;
+import homework.project.data.car.car_data.realize_type.Cargo;
+
 
 public class CargoFactory extends Factory {
+	private Cargo[] cargo;
+
 	
-	private final List<CargoCar> storage = new ArrayList<CargoCar>();
+	
+	public CargoFactory() {
+		super();
+		this.cargo = Cargo.values();
+	}
+
+
 
 	@Override
-	public Car createCar(CarBuilder builder) {
+	public CargoCar createCar(CarBuilder builder) {
 		return new CargoCar(
 				builder.getColor(), 
 				builder.getModel(), 
@@ -23,8 +30,29 @@ public class CargoFactory extends Factory {
 	}
 
 	@Override
-	public <T extends Car> void addCar(T car) {
-		storage.add((CargoCar) car);
+	public void createRandomCarsAndAddToStorage(int index) {
+		// Нужно сделать рандомный метод getOptions чтобы выдавал разное колличество опций
+		for (int i = 0; i < index; i++) {
+			this.addCarToStorage(
+					createCar(
+							new CarBuilder(
+									this.getColors()[RND.nextInt(this.getColors().length)], 
+									this.getModels()[RND.nextInt(this.getModels().length)], 
+									this.getWheels()[RND.nextInt(this.getWheels().length)], 
+									this.getEngines()[RND.nextInt(this.getEngines().length)], 
+									this.getOptions(), 
+									this.getCargo()[RND.nextInt(this.getCargo().length)])
+							)
+					);
+		}
 	}
+
+
+
+	public Cargo[] getCargo() {
+		return cargo;
+	}
+
+	
 
 }

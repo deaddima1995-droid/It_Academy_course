@@ -13,11 +13,12 @@ import homework.project.data.car.car_data.unchange_data.Engine;
 import homework.project.data.car.car_data.unchange_data.Model;
 
 public abstract class Factory {
-	private final static Random RND = new Random();
+	protected final static Random RND = new Random();
 	private final Model[] models;
 	private final Engine[] engines;
 	private final Color[] colors;
 	private final Wheel[] wheels;
+	private final Option[] options;
 	private final List<Car> storage;
 	
 	public Factory () {
@@ -25,11 +26,41 @@ public abstract class Factory {
 		this.engines = Engine.values();
 		this.colors = Color.values();
 		this.wheels = Wheel.values();
+		this.options = Option.values();
 		this.storage = new ArrayList<>();
+		createRandomCarsAndAddToStorage(10);
 	}
 	
 	public abstract Car createCar(CarBuilder builder);
+	
+	public abstract void createRandomCarsAndAddToStorage(int index);
 
-	public abstract <T extends Car> void addCar(T car);
+	public <T extends Car> void addCarToStorage(T car) {
+		storage.add((T) car);
+	}
+
+	public Model[] getModels() {
+		return models;
+	}
+
+	public Engine[] getEngines() {
+		return engines;
+	}
+
+	public Color[] getColors() {
+		return colors;
+	}
+
+	public Wheel[] getWheels() {
+		return wheels;
+	}
+
+	public List<Car> getStorage() {
+		return storage;
+	}
+
+	public Option[] getOptions() {
+		return options;
+	}
 
 }

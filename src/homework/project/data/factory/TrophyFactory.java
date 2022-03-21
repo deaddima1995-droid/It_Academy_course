@@ -5,12 +5,17 @@ import java.util.List;
 
 import homework.project.data.car.Car;
 import homework.project.data.car.TrophyCar;
+import homework.project.data.car.car_data.realize_type.Drive;
 
 public class TrophyFactory extends Factory {
-	private final List<TrophyCar> storage = new ArrayList<TrophyCar>();
+	private final Drive[] drive;
 	
+	public TrophyFactory() {
+		drive = Drive.values();
+	}
+
 	@Override
-	public Car createCar(CarBuilder builder) {
+	public TrophyCar createCar(CarBuilder builder) {
 		return new TrophyCar(
 				builder.getColor(), 
 				builder.getModel(), 
@@ -22,8 +27,23 @@ public class TrophyFactory extends Factory {
 	}
 
 	@Override
-	public <T extends Car> void addCar(T car) {
-		storage.add((TrophyCar) car);
+	public void createRandomCarsAndAddToStorage(int index) {
+		for (int i = 0; i < index; i++) {
+			this.addCarToStorage(
+					createCar(
+							new CarBuilder(
+									this.getColors()[RND.nextInt(this.getColors().length)], 
+									this.getModels()[RND.nextInt(this.getModels().length)], 
+									this.getWheels()[RND.nextInt(this.getWheels().length)], 
+									this.getEngines()[RND.nextInt(this.getEngines().length)], 
+									this.getOptions(), 
+									this.getDrive()[RND.nextInt(this.getDrive().length)])
+							)
+					);
+		}
 	}
 
+	public Drive[] getDrive() {
+		return drive;
+	}
 }

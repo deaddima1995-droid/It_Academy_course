@@ -37,12 +37,28 @@ public abstract class Car {
 	}
 	
 	public void addOption(Set<Option> options) {
+		this.options.clear();
 		this.options.addAll(options);
 	}
 	
-	public void deleteOption(Set<Option> options) {
-		this.options.removeAll(options);
+	public void addOption(Option... options) {
+		for (Option option : options) {
+			if (this.options.contains(option)) {
+				this.options.add(option);
+			}
+		}
+	}	
+	
+	public void deleteOption(Option... options) {
+		for (Option option : options) {
+			if (this.options.contains(option)) {
+				this.options.remove(option);
+			}
+		}
 	}
+		
+		
+	
 
 	@Override
 	public String toString() {
