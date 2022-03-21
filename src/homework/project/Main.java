@@ -39,7 +39,8 @@ public class Main {
 		saler.addCarToStorage(tCar);
 		saler.addCarToStorage(cCar);
 		saler.addCarToStorage(car);
-		System.out.println(saler);
+		System.out.println(raceFactory);
+		//System.out.println(saler);
 		
 	}
 

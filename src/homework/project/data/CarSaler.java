@@ -53,12 +53,9 @@ public class CarSaler {
 	public void addCarToStorage(Car car) {
 		storage.add(car);
 	}
-
-	@Override
-	public String toString() {
-		return "CarSaler [" + (storage != null ? "storage=" + storage : "") + "]";
-	}
-
+	
+	
+	
 	public void changeColorCar(Car car, Color color) {
 		painter.changeColor(car, color);
 	}
@@ -66,4 +63,10 @@ public class CarSaler {
 	public void changeWheelCar(Car car, Wheel wheel) {
 		pitStop.changeWheel(car, wheel);
 	}
+	
+	@Override
+	public String toString() {
+		return "CarSaler [" + (storage != null ? "storage=" + storage : "") + "]";
+	}
+
 }

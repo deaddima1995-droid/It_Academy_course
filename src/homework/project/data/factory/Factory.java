@@ -28,7 +28,7 @@ public abstract class Factory {
 		this.wheels = Wheel.values();
 		this.options = Option.values();
 		this.storage = new ArrayList<>();
-		createRandomCarsAndAddToStorage(10);
+		//createRandomCarsAndAddToStorage(10);
 	}
 	
 	public abstract Car createCar(CarBuilder builder);
@@ -61,6 +61,11 @@ public abstract class Factory {
 
 	public Option[] getOptions() {
 		return options;
+	}
+
+	@Override
+	public String toString() {
+		return "Factory [storage=" + storage + "]";
 	}
 
 }

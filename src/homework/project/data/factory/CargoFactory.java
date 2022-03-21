@@ -13,6 +13,7 @@ public class CargoFactory extends Factory {
 	public CargoFactory() {
 		super();
 		this.cargo = Cargo.values();
+		createRandomCarsAndAddToStorage(10);
 	}
 
 

@@ -12,6 +12,7 @@ public class TrophyFactory extends Factory {
 	
 	public TrophyFactory() {
 		drive = Drive.values();
+		createRandomCarsAndAddToStorage(10);
 	}
 
 	@Override

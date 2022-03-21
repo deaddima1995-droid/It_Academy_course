@@ -8,6 +8,7 @@ public class RacingFactory extends Factory {
 
 	public RacingFactory() {
 		super();
+		createRandomCarsAndAddToStorage(10);
 	}
 	
 	@Override

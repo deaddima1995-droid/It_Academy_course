@@ -62,7 +62,7 @@ public abstract class Car {
 
 	@Override
 	public String toString() {
-		return "Car [color=" + color + ", model=" + model + ", year=" + year + ", wheel=" + wheel + ", engine=" + engine
+		return "\nCar [color=" + color + ", model=" + model + ", year=" + year + ", wheel=" + wheel + ", engine=" + engine
 				+ ", options=" + options + "]";
 	}
 
