@@ -2,7 +2,7 @@ package homework.project.data.service;
 
 import homework.project.data.car.Car;
 import homework.project.data.car.car_data.change_data.Wheel;
-import homework.project.interfaces.WheelChangeble;
+import homework.project.interfaces_project.WheelChangeble;
 
 public class WheelServise implements WheelChangeble {
 	

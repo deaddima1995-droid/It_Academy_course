@@ -1,8 +1,5 @@
 package homework.project.data.factory;
 
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.Collections;
 import java.util.Set;
 
 import homework.project.data.car.car_data.change_data.Color;
@@ -15,12 +12,12 @@ import homework.project.data.car.car_data.unchange_data.Engine;
 import homework.project.data.car.car_data.unchange_data.Model;
 
 public class CarBuilder {
-	private String type;
 	private final Color color;
 	private final Model model;
 	private final Wheel wheel;
 	private final Engine engine;
 	private final Set<Option> options;
+	private String type;
 	private Cargo cargo;
 	private Turbo turbo;
 	private Drive drive;
@@ -36,6 +33,7 @@ public class CarBuilder {
 	public CarBuilder(Color color, Model model, Wheel wheel, Engine engine, Option[] options,
 			Cargo cargo) {
 		this(color, model, wheel, engine, options);
+		this.cargo = cargo;
 		this.type = "CargoCar";
 	}
 	
@@ -92,7 +90,21 @@ public class CarBuilder {
 	public String getType() {
 		return type;
 	}
-	
+
+	@Override
+	public String toString() {
+		return "CarBuilder ["
+				+ "Тип = " + type + ", "
+				+ "Цвет = " + color + ","
+				+ "Модель = " + model + ", "
+				+ "Колеса = " + wheel + ", "
+				+ "Двигатель = "+ engine + ", "
+				+ "Опции =" + (options != null ? "options=" + options + ", " : "") + ", "
+				+ (cargo != null ? "cargo=" + cargo + ", " : "")
+				+ (turbo != null ? "turbo=" + turbo + ", " : "")
+				+ (drive != null ? "drive=" + drive + ", " : drive) 
+				+ "]";
+	}
 	
 	
 	

@@ -12,7 +12,7 @@ public class RacingFactory extends Factory {
 	}
 	
 	@Override
-	public RacingCar createCar(CarBuilder builder) {
+	protected RacingCar createCar(CarBuilder builder) {
 		if (builder.getTurbo() == null) {
 			System.err.println("Ошибка ввода данных");
 		}
@@ -32,12 +32,12 @@ public class RacingFactory extends Factory {
 			this.addCarToStorage(
 					createCar(
 							new CarBuilder(
-									this.getColors()[RND.nextInt(this.getColors().length)], 
-									this.getModels()[RND.nextInt(this.getModels().length)], 
-									this.getWheels()[RND.nextInt(this.getWheels().length)], 
-									this.getEngines()[RND.nextInt(this.getEngines().length)], 
+									this.getColors()[RND.nextInt(1, this.getColors().length)], 
+									this.getModels()[RND.nextInt(1, this.getModels().length)], 
+									this.getWheels()[RND.nextInt(1, this.getWheels().length)], 
+									this.getEngines()[RND.nextInt(1, this.getEngines().length)], 
 									this.getOptions(), 
-									this.getTurbo()[RND.nextInt(this.getTurbo().length)])
+									this.getTurbo()[RND.nextInt(1, this.getTurbo().length)])
 							)
 					);
 		}

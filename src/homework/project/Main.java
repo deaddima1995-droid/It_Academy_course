@@ -33,13 +33,16 @@ public class Main {
 		CarSaler saler = new CarSaler(colorServise, wheelServise, optionServise, raceFactory, trophyFactory, cargoFactory);
 		Option[] options = {Option.AUDIO, Option.BLUETOOTH , Option.CONDITIONER }; 
 		
+		CarBuilder build = new CarBuilder(Color.BLUE, Model.CADDY, Wheel.R18, Engine.HIGH, options , Turbo.MAX);
+		Car carick = raceFactory.takeCarFromFactoryOrCreateHim(build);
+		System.out.println(carick);
 		Car car = saler.takeOrder(new CarBuilder(Color.BLUE, Model.CADDY, Wheel.R18, Engine.HIGH, options , Turbo.MAX));
 		Car tCar = saler.takeOrder(new CarBuilder(Color.BLUE, Model.PASSAT, Wheel.R16, Engine.MEDIUM, options, Drive.FULL));
-		Car cCar = saler.takeOrder(new CarBuilder(Color.WHITE, Model.CADDY, Wheel.R19, Engine.HIGH, options, Cargo.MATERIAL));
-		saler.addCarToStorage(tCar);
-		saler.addCarToStorage(cCar);
-		saler.addCarToStorage(car);
-		System.out.println(raceFactory);
+		Car cCar = saler.takeOrder(new CarBuilder(Color.WHITE, Model.CADDY, Wheel.R19, Engine.HIGH, options, Cargo.EAT));
+		//saler.addCarToStorage(tCar);
+		//saler.addCarToStorage(cCar);
+		//saler.addCarToStorage(car);
+		//System.out.println(raceFactory);
 		//System.out.println(saler);
 		
 	}

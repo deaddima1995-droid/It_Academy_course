@@ -9,10 +9,11 @@ import homework.project.data.car.car_data.change_data.Wheel;
 import homework.project.data.car.car_data.realize_type.Turbo;
 import homework.project.data.car.car_data.unchange_data.Engine;
 import homework.project.data.car.car_data.unchange_data.Model;
+import homework.project.data.factory.CarBuilder;
 
 
 public class RacingCar extends Car {
-	private Turbo turbo;
+	private final Turbo turbo;
 
 	public RacingCar(Color color, Model model, Wheel wheel, Engine engine, Set<Option> options,Turbo turbo
 	) {
@@ -22,18 +23,41 @@ public class RacingCar extends Car {
 
 	@Override
 	public String toString() {
-		return "RacingCar [" + (turbo != null ? "turbo=" + turbo + ", " : "")
-				+ (super.toString() != null ? "toString()=" + super.toString() : "") + "]";
+		return "\nRacingCar " + "Турбо = " + turbo
+				+ (super.toString() != null ? super.toString() : "");
 	}
 
+	@Override
+	public boolean compareAllParametrsOfCar(CarBuilder builder) {
+		
+		if (this.getColor().equals(builder.getColor()) &&
+			this.getModel().equals(builder.getModel()) &&
+			this.getWheel().equals(builder.getWheel()) &&
+			this.getEngine().equals(builder.getEngine()) &&
+			this.getOptions().containsAll(builder.getOptions()) &&
+			this.getTurbo().equals(builder.getTurbo())
+		) {
+		return true;
+		}
+		return false;
+	}
+	
+	@Override
+	public boolean compareFinalParametrsOfCar(CarBuilder builder) {
+		
+		if (this.getModel().equals(builder.getModel()) &&		
+			this.getEngine().equals(builder.getEngine()) &&
+			this.getTurbo().equals(builder.getTurbo())
+		) {
+		return true;
+		}
+		return false;
+	}
+	
 	public Turbo getTurbo() {
 		return turbo;
 	}
-	
 
-	public void setTurbo(Turbo turbo) {
-		this.turbo = turbo;
-	}
 	
 	
 	

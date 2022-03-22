@@ -38,14 +38,15 @@ public class CarSaler {
 	}
 
 	public Car takeOrder(CarBuilder builder) {
+		System.out.println("Взяли заказ "+builder);
 		if (builder.getType().equals("RacingCar")) {
-			return racingFactory.createCar(builder);
+			return racingFactory.takeCarFromFactoryOrCreateHim(builder);
 		}
 		if (builder.getType().equals("CargoCar")) {
-			return cargoFactory.createCar(builder);
+			return cargoFactory.takeCarFromFactoryOrCreateHim(builder);
 		}
 		if (builder.getType().equals("TrophyCar")) {
-			return trophyFactory.createCar(builder);
+			return trophyFactory.takeCarFromFactoryOrCreateHim(builder);
 		}
 		return null;
 	}

@@ -1,4 +1,4 @@
-package homework.project.interfaces;
+package homework.project.interfaces_project;
 
 import java.util.Set;
 

@@ -1,12 +1,11 @@
 package homework.project.data.factory;
 
-import homework.project.data.car.Car;
 import homework.project.data.car.CargoCar;
 import homework.project.data.car.car_data.realize_type.Cargo;
 
 
 public class CargoFactory extends Factory {
-	private Cargo[] cargo;
+	private final Cargo[] cargo;
 
 	
 	
@@ -19,7 +18,7 @@ public class CargoFactory extends Factory {
 
 
 	@Override
-	public CargoCar createCar(CarBuilder builder) {
+	protected CargoCar createCar(CarBuilder builder) {
 		return new CargoCar(
 				builder.getColor(), 
 				builder.getModel(), 
@@ -37,12 +36,12 @@ public class CargoFactory extends Factory {
 			this.addCarToStorage(
 					createCar(
 							new CarBuilder(
-									this.getColors()[RND.nextInt(this.getColors().length)], 
-									this.getModels()[RND.nextInt(this.getModels().length)], 
-									this.getWheels()[RND.nextInt(this.getWheels().length)], 
-									this.getEngines()[RND.nextInt(this.getEngines().length)], 
+									this.getColors()[RND.nextInt(1, this.getColors().length)], 
+									this.getModels()[RND.nextInt(1, this.getModels().length)], 
+									this.getWheels()[RND.nextInt(1, this.getWheels().length)], 
+									this.getEngines()[RND.nextInt(1, this.getEngines().length)], 
 									this.getOptions(), 
-									this.getCargo()[RND.nextInt(this.getCargo().length)])
+									this.getCargo()[RND.nextInt(1, this.getCargo().length)])
 							)
 					);
 		}

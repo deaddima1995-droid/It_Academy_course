@@ -31,9 +31,35 @@ public abstract class Factory {
 		//createRandomCarsAndAddToStorage(10);
 	}
 	
-	public abstract Car createCar(CarBuilder builder);
+	protected abstract Car createCar(CarBuilder builder);
 	
 	public abstract void createRandomCarsAndAddToStorage(int index);
+	
+	public Car takeCarFromFactoryOrCreateHim(CarBuilder builder) {
+		for (Car car : storage) {
+			if (car.compareAllParametrsOfCar(builder)) {
+				System.out.println("Взяли тачку со склада завода");
+				return car;
+			} else if (car.compareFinalParametrsOfCar(builder)) {
+				// тут нужно привести все параметры как необходимо
+				// меняем цвет колёса и опции
+				if (!car.getColor().equals(builder.getColor())) {
+					car.changeColor(builder.getColor());
+				}
+				if (!car.getWheel().equals(builder.getWheel())) {
+					car.changeWheel(builder.getWheel());
+				}
+				if (!car.getOptions().containsAll(builder.getOptions())) {
+					car.deleteOption(Option.values());
+					car.addOption(builder.getOptions());
+				}
+				System.out.println("Взяли тачку со склада и изменили её");
+				return car;
+			}
+		}
+		System.out.println("Создали новую тачку на заводе");
+		return createCar(builder);
+	}
 
 	public <T extends Car> void addCarToStorage(T car) {
 		storage.add((T) car);

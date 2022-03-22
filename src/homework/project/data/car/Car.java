@@ -9,6 +9,7 @@ import homework.project.data.car.car_data.change_data.Option;
 import homework.project.data.car.car_data.change_data.Wheel;
 import homework.project.data.car.car_data.unchange_data.Engine;
 import homework.project.data.car.car_data.unchange_data.Model;
+import homework.project.data.factory.CarBuilder;
 
 
 public abstract class Car {
@@ -27,6 +28,10 @@ public abstract class Car {
 		this.engine = engine;
 		this.options = options;
 	}
+	
+	public abstract boolean compareAllParametrsOfCar(CarBuilder builder);
+	
+	public abstract boolean compareFinalParametrsOfCar(CarBuilder builder);
 	
 	public void changeColor(Color color) {
 		this.color = color;
@@ -62,8 +67,32 @@ public abstract class Car {
 
 	@Override
 	public String toString() {
-		return "\nCar [color=" + color + ", model=" + model + ", year=" + year + ", wheel=" + wheel + ", engine=" + engine
-				+ ", options=" + options + "]";
+		return " Цвет = " + color + ", Модель = " + model + ", Год выпуска = " + year + ", Колеса = " + wheel + ", Двигатель= " + engine
+				+ ", Список опций = " + options;
+	}
+
+	public Color getColor() {
+		return color;
+	}
+
+	public Model getModel() {
+		return model;
+	}
+
+	public int getYear() {
+		return year;
+	}
+
+	public Wheel getWheel() {
+		return wheel;
+	}
+
+	public Engine getEngine() {
+		return engine;
+	}
+
+	public Set<Option> getOptions() {
+		return options;
 	}
 
 	

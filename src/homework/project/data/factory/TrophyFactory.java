@@ -16,7 +16,7 @@ public class TrophyFactory extends Factory {
 	}
 
 	@Override
-	public TrophyCar createCar(CarBuilder builder) {
+	protected TrophyCar createCar(CarBuilder builder) {
 		return new TrophyCar(
 				builder.getColor(), 
 				builder.getModel(), 
@@ -33,12 +33,12 @@ public class TrophyFactory extends Factory {
 			this.addCarToStorage(
 					createCar(
 							new CarBuilder(
-									this.getColors()[RND.nextInt(this.getColors().length)], 
-									this.getModels()[RND.nextInt(this.getModels().length)], 
-									this.getWheels()[RND.nextInt(this.getWheels().length)], 
-									this.getEngines()[RND.nextInt(this.getEngines().length)], 
+									this.getColors()[RND.nextInt(1, this.getColors().length)], 
+									this.getModels()[RND.nextInt(1, this.getModels().length)], 
+									this.getWheels()[RND.nextInt(1, this.getWheels().length)], 
+									this.getEngines()[RND.nextInt(1, this.getEngines().length)], 
 									this.getOptions(), 
-									this.getDrive()[RND.nextInt(this.getDrive().length)])
+									this.getDrive()[RND.nextInt(1, this.getDrive().length)])
 							)
 					);
 		}
