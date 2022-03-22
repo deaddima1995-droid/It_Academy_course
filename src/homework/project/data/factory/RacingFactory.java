@@ -1,7 +1,7 @@
 package homework.project.data.factory;
 
 import homework.project.data.car.RacingCar;
-import homework.project.data.car.car_data.realize_type.Turbo;
+import homework.project.data.car.car_data.unchange_data.Turbo;
 
 public class RacingFactory extends Factory {
 	public final Turbo[] turbo = Turbo.values();

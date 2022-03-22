@@ -51,11 +51,9 @@ public class CarSaler {
 		return null;
 	}
 	
-	public void addCarToStorage(Car car) {
+	private void addCarToStorage(Car car) {
 		storage.add(car);
 	}
-	
-	
 	
 	public void changeColorCar(Car car, Color color) {
 		painter.changeColor(car, color);

@@ -1,7 +1,7 @@
 package homework.project.data.factory;
 
 import homework.project.data.car.CargoCar;
-import homework.project.data.car.car_data.realize_type.Cargo;
+import homework.project.data.car.car_data.unchange_data.Cargo;
 
 
 public class CargoFactory extends Factory {
