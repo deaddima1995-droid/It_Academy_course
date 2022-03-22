@@ -11,7 +11,6 @@ public class OptionServise implements OptionChangeble {
 	@Override
 	public <T extends Car> void addOption(T car, Set<Option> options) {
 		car.addOption(options);
-		
 	}
 
 	@Override
@@ -23,6 +22,5 @@ public class OptionServise implements OptionChangeble {
 	public <T extends Car> void deleteOption(T car, Option... options) {
 		car.deleteOption(options);
 	}
-	
-	
+
 }

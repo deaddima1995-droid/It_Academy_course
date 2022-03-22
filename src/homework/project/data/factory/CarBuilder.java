@@ -10,6 +10,7 @@ import homework.project.data.car.car_data.unchange_data.Drive;
 import homework.project.data.car.car_data.unchange_data.Engine;
 import homework.project.data.car.car_data.unchange_data.Model;
 import homework.project.data.car.car_data.unchange_data.Turbo;
+import homework.project.exception_project.NullParametrException;
 
 public class CarBuilder {
 	private final Color color;
@@ -22,34 +23,47 @@ public class CarBuilder {
 	private Turbo turbo;
 	private Drive drive;
 	
-	private CarBuilder(Color color, Model model, Wheel wheel, Engine engine, Option[] options) {
+	private CarBuilder(Color color, Model model, Wheel wheel, Engine engine, Option[] options) throws NullParametrException {
 		this.color = color;
 		this.model = model;
 		this.wheel = wheel;
 		this.engine = engine;
 		this.options = Set.of(options);
+		if (this.color == null || this.model == null || this.wheel == null || this.engine == null || this.options == null) {
+			throw new NullParametrException("Параметры для создания машины Указаны null");
+		}
 	}
 	
 	public CarBuilder(Color color, Model model, Wheel wheel, Engine engine, Option[] options,
-			Cargo cargo) {
+			Cargo cargo) throws NullParametrException {
 		this(color, model, wheel, engine, options);
 		this.cargo = cargo;
 		this.type = "CargoCar";
+		if (this.cargo == null) {
+			throw new NullParametrException("Параметры для создания машины Указаны null");
+		}
 	}
 	
 	public CarBuilder(Color color, Model model, Wheel wheel, Engine engine, Option[] options,
-			Turbo turbo) {
+			Turbo turbo) throws NullParametrException {
 		this(color, model, wheel, engine, options);
 		this.turbo = turbo;
 		this.type = "RacingCar";
+		if (this.turbo == null) {
+			throw new NullParametrException("Параметры для создания машины Указаны null");
+		}
 	}
 
 	public CarBuilder(Color color, Model model, Wheel wheel, Engine engine, Option[] options,
-			Drive drive) {
+			Drive drive) throws NullParametrException {
 		this(color, model, wheel, engine, options);
 		this.drive = drive;
 		this.type = "TrophyCar";
+		if (this.drive == null) {
+			throw new NullParametrException("Параметры для создания машины Указаны null");
+		}
 	}
+
 
 	public Color getColor() {
 		return color;
@@ -102,10 +116,8 @@ public class CarBuilder {
 				+ "Опции =" + (options != null ? "options=" + options + ", " : "") + ", "
 				+ (cargo != null ? "cargo=" + cargo + ", " : "")
 				+ (turbo != null ? "turbo=" + turbo + ", " : "")
-				+ (drive != null ? "drive=" + drive + ", " : drive) 
+				+ (drive != null ? "drive=" + drive + ", " : "") 
 				+ "]";
 	}
-	
-	
-	
+
 }

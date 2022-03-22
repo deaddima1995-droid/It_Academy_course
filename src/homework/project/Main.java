@@ -18,10 +18,11 @@ import homework.project.data.factory.TrophyFactory;
 import homework.project.data.service.ColorServise;
 import homework.project.data.service.OptionServise;
 import homework.project.data.service.WheelServise;
+import homework.project.exception_project.NullParametrException;
 
 public class Main {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws NullParametrException {
 		ColorServise colorServise = new ColorServise();
 		WheelServise wheelServise = new WheelServise();
 		OptionServise optionServise = new OptionServise();
@@ -31,19 +32,19 @@ public class Main {
 		TrophyFactory trophyFactory = new TrophyFactory();
 		
 		CarSaler saler = new CarSaler(colorServise, wheelServise, optionServise, raceFactory, trophyFactory, cargoFactory);
+		
 		Option[] options = {Option.AUDIO, Option.BLUETOOTH , Option.CONDITIONER }; 
 		
 		CarBuilder build = new CarBuilder(Color.BLUE, Model.CADDY, Wheel.R18, Engine.HIGH, options , Turbo.MAX);
 		Car carick = raceFactory.takeCarFromFactoryOrCreateHim(build);
 		System.out.println(carick);
+		
 		Car car = saler.takeOrder(new CarBuilder(Color.BLUE, Model.CADDY, Wheel.R18, Engine.HIGH, options , Turbo.MAX));
 		Car tCar = saler.takeOrder(new CarBuilder(Color.BLUE, Model.PASSAT, Wheel.R16, Engine.MEDIUM, options, Drive.FULL));
 		Car cCar = saler.takeOrder(new CarBuilder(Color.WHITE, Model.CADDY, Wheel.R19, Engine.HIGH, options, Cargo.EAT));
-		//saler.addCarToStorage(tCar);
-		//saler.addCarToStorage(cCar);
-		//saler.addCarToStorage(car);
-		//System.out.println(raceFactory);
-		//System.out.println(saler);
+		
+		System.out.println(raceFactory);
+		System.out.println(saler);
 		
 	}
 

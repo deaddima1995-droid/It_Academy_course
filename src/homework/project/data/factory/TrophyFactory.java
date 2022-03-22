@@ -1,16 +1,13 @@
 package homework.project.data.factory;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import homework.project.data.car.Car;
 import homework.project.data.car.TrophyCar;
 import homework.project.data.car.car_data.unchange_data.Drive;
+import homework.project.exception_project.NullParametrException;
 
 public class TrophyFactory extends Factory {
 	private final Drive[] drive;
 	
-	public TrophyFactory() {
+	public TrophyFactory() throws NullParametrException {
 		drive = Drive.values();
 		createRandomCarsAndAddToStorage(10);
 	}
@@ -28,7 +25,7 @@ public class TrophyFactory extends Factory {
 	}
 
 	@Override
-	public void createRandomCarsAndAddToStorage(int index) {
+	public void createRandomCarsAndAddToStorage(int index) throws NullParametrException {
 		for (int i = 0; i < index; i++) {
 			this.addCarToStorage(
 					createCar(

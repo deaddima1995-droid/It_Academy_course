@@ -1,6 +1,7 @@
 package homework.project.data.factory;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Random;
 import java.util.Set;
@@ -11,6 +12,7 @@ import homework.project.data.car.car_data.change_data.Option;
 import homework.project.data.car.car_data.change_data.Wheel;
 import homework.project.data.car.car_data.unchange_data.Engine;
 import homework.project.data.car.car_data.unchange_data.Model;
+import homework.project.exception_project.NullParametrException;
 
 public abstract class Factory {
 	protected final static Random RND = new Random();
@@ -33,7 +35,8 @@ public abstract class Factory {
 	
 	protected abstract Car createCar(CarBuilder builder);
 	
-	public abstract void createRandomCarsAndAddToStorage(int index);
+	protected abstract void createRandomCarsAndAddToStorage(int index) throws NullParametrException;
+
 	
 	public Car takeCarFromFactoryOrCreateHim(CarBuilder builder) {
 		for (Car car : storage) {
@@ -41,8 +44,7 @@ public abstract class Factory {
 				System.out.println("Взяли тачку со склада завода");
 				return car;
 			} else if (car.compareFinalParametrsOfCar(builder)) {
-				// тут нужно привести все параметры как необходимо
-				// меняем цвет колёса и опции
+				
 				if (!car.getColor().equals(builder.getColor())) {
 					car.changeColor(builder.getColor());
 				}
@@ -61,7 +63,7 @@ public abstract class Factory {
 		return createCar(builder);
 	}
 
-	public <T extends Car> void addCarToStorage(T car) {
+	protected <T extends Car> void addCarToStorage(T car) {
 		storage.add((T) car);
 	}
 
@@ -88,6 +90,7 @@ public abstract class Factory {
 	public Option[] getOptions() {
 		return options;
 	}
+
 
 	@Override
 	public String toString() {

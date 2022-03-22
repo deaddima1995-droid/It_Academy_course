@@ -12,7 +12,7 @@ import homework.project.data.factory.CarBuilder;
 
 public class CargoCar extends Car {
 	private final Cargo cargo;
-	
+
 	public CargoCar(Color color, Model model, Wheel wheel, Engine engine, Set<Option> options, Cargo cargo) {
 		super(color, model, wheel, engine, options);
 		this.cargo = cargo;
@@ -27,7 +27,7 @@ public class CargoCar extends Car {
 			this.getOptions().containsAll(builder.getOptions()) &&
 			this.getCargo().equals(builder.getCargo())
 		) {
-		return true;
+			return true;
 		}
 		return false;
 	}
@@ -38,7 +38,7 @@ public class CargoCar extends Car {
 			this.getEngine().equals(builder.getEngine()) &&
 			this.getCargo().equals(builder.getCargo())
 		) {
-		return true;
+			return true;
 		}
 		return false;
 	}

@@ -2,15 +2,16 @@ package homework.project.data.factory;
 
 import homework.project.data.car.RacingCar;
 import homework.project.data.car.car_data.unchange_data.Turbo;
+import homework.project.exception_project.NullParametrException;
 
 public class RacingFactory extends Factory {
 	public final Turbo[] turbo = Turbo.values();
 
-	public RacingFactory() {
+	public RacingFactory() throws NullParametrException {
 		super();
 		createRandomCarsAndAddToStorage(10);
 	}
-	
+
 	@Override
 	protected RacingCar createCar(CarBuilder builder) {
 		if (builder.getTurbo() == null) {
@@ -27,7 +28,7 @@ public class RacingFactory extends Factory {
 	}
 
 	@Override
-	public void createRandomCarsAndAddToStorage(int index) {
+	public void createRandomCarsAndAddToStorage(int index) throws NullParametrException {
 		for (int i = 0; i < index; i++) {
 			this.addCarToStorage(
 					createCar(
@@ -47,17 +48,4 @@ public class RacingFactory extends Factory {
 		return this.turbo;
 	}
 	
-
-	
-
-
-	
-
-	
-
-
-
-
-	
-
 }

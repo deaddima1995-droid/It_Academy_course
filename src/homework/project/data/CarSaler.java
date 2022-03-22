@@ -1,10 +1,10 @@
 package homework.project.data;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Set;
 
 import homework.project.data.car.Car;
 import homework.project.data.car.car_data.change_data.Color;
+import homework.project.data.car.car_data.change_data.Option;
 import homework.project.data.car.car_data.change_data.Wheel;
 import homework.project.data.factory.CarBuilder;
 import homework.project.data.factory.CargoFactory;
@@ -21,7 +21,7 @@ public class CarSaler {
 	private final RacingFactory racingFactory;
 	private final TrophyFactory trophyFactory;
 	private final CargoFactory cargoFactory;
-	private final List<Car> storage = new ArrayList<>();
+	private final OptionServise optionServise;
 	
 	public CarSaler(ColorServise painter, 
 			WheelServise pitStop, 
@@ -35,6 +35,7 @@ public class CarSaler {
 		this.racingFactory = racingFactory;
 		this.trophyFactory = trophyFactory;
 		this.cargoFactory = cargoFactory;
+		this.optionServise = optionServise;
 	}
 
 	public Car takeOrder(CarBuilder builder) {
@@ -51,21 +52,20 @@ public class CarSaler {
 		return null;
 	}
 	
-	private void addCarToStorage(Car car) {
-		storage.add(car);
-	}
-	
 	public void changeColorCar(Car car, Color color) {
 		painter.changeColor(car, color);
 	}
 	
-	public void changeWheelCar(Car car, Wheel wheel) {
-		pitStop.changeWheel(car, wheel);
+	public void changeOptionCar(Car car, Option[] option) {
+		this.optionServise.addOption(car, option);
 	}
 	
-	@Override
-	public String toString() {
-		return "CarSaler [" + (storage != null ? "storage=" + storage : "") + "]";
+	public void deleteOptionCar(Car car, Set<Option> options) {
+		this.optionServise.addOption(car, options);
+	}
+	
+	public void changeWheelCar(Car car, Wheel wheel) {
+		pitStop.changeWheel(car, wheel);
 	}
 
 }
