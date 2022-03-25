@@ -1,7 +1,6 @@
 package homework.project;
 
 import homework.project.data.CarSaler;
-import homework.project.data.car.Car;
 
 import homework.project.data.car.car_data.change_data.Color;
 import homework.project.data.car.car_data.change_data.Option;
@@ -22,7 +21,7 @@ import homework.project.exception_project.NullParametrException;
 
 public class Main {
 
-	public static void main(String[] args) throws NullParametrException {
+	public static void main(String[] args) {
 		ColorServise colorServise = new ColorServise();
 		WheelServise wheelServise = new WheelServise();
 		OptionServise optionServise = new OptionServise();
@@ -32,17 +31,23 @@ public class Main {
 		TrophyFactory trophyFactory = new TrophyFactory();
 		
 		CarSaler saler = new CarSaler(colorServise, wheelServise, optionServise, raceFactory, trophyFactory, cargoFactory);
+		System.out.println(raceFactory);
+		System.out.println(raceFactory);
+		System.out.println(raceFactory);
 		
-		Option[] options = {Option.AUDIO, Option.BLUETOOTH , Option.CONDITIONER }; 
+		Option[] options = {Option.AUDIO, Option.BLUETOOTH , Option.CONDITIONER }; 	
 		
-		CarBuilder build = new CarBuilder(Color.BLUE, Model.CADDY, Wheel.R18, Engine.HIGH, options , Turbo.MAX);
-		Car carick = raceFactory.takeCarFromFactoryOrCreateHim(build);
-		System.out.println(carick);
+		try {
+			saler.takeOrder(new CarBuilder(Color.BLUE, Model.CADDY, Wheel.R18, Engine.HIGH, new Option[] {Option.AUDIO, Option.BLUETOOTH} , Turbo.MAX));
+			saler.takeOrder(new CarBuilder(Color.BLUE, Model.PASSAT, Wheel.R16, Engine.MEDIUM, new Option[] {Option.AUDIO, Option.BLUETOOTH, Option.CONDITIONER}, Drive.FULL));
+			saler.takeOrder(new CarBuilder(Color.WHITE, Model.CADDY, Wheel.R19, Engine.HIGH, new Option[] { }, Cargo.EAT));
+		} catch (NullParametrException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
-		Car car = saler.takeOrder(new CarBuilder(Color.BLUE, Model.CADDY, Wheel.R18, Engine.HIGH, options , Turbo.MAX));
-		Car tCar = saler.takeOrder(new CarBuilder(Color.BLUE, Model.PASSAT, Wheel.R16, Engine.MEDIUM, options, Drive.FULL));
-		Car cCar = saler.takeOrder(new CarBuilder(Color.WHITE, Model.CADDY, Wheel.R19, Engine.HIGH, options, Cargo.EAT));
-		
+		System.out.println(raceFactory);
+		System.out.println(raceFactory);
 		System.out.println(raceFactory);
 		System.out.println(saler);
 		

@@ -7,9 +7,9 @@ import homework.project.exception_project.NullParametrException;
 public class TrophyFactory extends Factory {
 	private final Drive[] drive;
 	
-	public TrophyFactory() throws NullParametrException {
+	public TrophyFactory() {
 		drive = Drive.values();
-		createRandomCarsAndAddToStorage(10);
+		createRandomCarsAndAddToStorage(3);
 	}
 
 	@Override
@@ -25,19 +25,24 @@ public class TrophyFactory extends Factory {
 	}
 
 	@Override
-	public void createRandomCarsAndAddToStorage(int index) throws NullParametrException {
+	public void createRandomCarsAndAddToStorage(int index) {
 		for (int i = 0; i < index; i++) {
-			this.addCarToStorage(
-					createCar(
-							new CarBuilder(
-									this.getColors()[RND.nextInt(1, this.getColors().length)], 
-									this.getModels()[RND.nextInt(1, this.getModels().length)], 
-									this.getWheels()[RND.nextInt(1, this.getWheels().length)], 
-									this.getEngines()[RND.nextInt(1, this.getEngines().length)], 
-									this.getOptions(), 
-									this.getDrive()[RND.nextInt(1, this.getDrive().length)])
-							)
-					);
+			try {
+				this.addCarToStorage(
+						createCar(
+								new CarBuilder(
+										this.getColors()[RND.nextInt(1, this.getColors().length)], 
+										this.getModels()[RND.nextInt(1, this.getModels().length)], 
+										this.getWheels()[RND.nextInt(1, this.getWheels().length)], 
+										this.getEngines()[RND.nextInt(1, this.getEngines().length)], 
+										this.getOptions(), 
+										this.getDrive()[RND.nextInt(1, this.getDrive().length)])
+								)
+						);
+			} catch (NullParametrException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 	}
 

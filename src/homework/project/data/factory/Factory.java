@@ -1,10 +1,8 @@
 package homework.project.data.factory;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Random;
-import java.util.Set;
 
 import homework.project.data.car.*;
 import homework.project.data.car.car_data.change_data.Color;
@@ -12,7 +10,6 @@ import homework.project.data.car.car_data.change_data.Option;
 import homework.project.data.car.car_data.change_data.Wheel;
 import homework.project.data.car.car_data.unchange_data.Engine;
 import homework.project.data.car.car_data.unchange_data.Model;
-import homework.project.exception_project.NullParametrException;
 
 public abstract class Factory {
 	protected final static Random RND = new Random();
@@ -35,7 +32,7 @@ public abstract class Factory {
 	
 	protected abstract Car createCar(CarBuilder builder);
 	
-	protected abstract void createRandomCarsAndAddToStorage(int index) throws NullParametrException;
+	protected abstract void createRandomCarsAndAddToStorage(int index);
 
 	
 	public Car takeCarFromFactoryOrCreateHim(CarBuilder builder) {
@@ -55,7 +52,9 @@ public abstract class Factory {
 					car.deleteOption(Option.values());
 					car.addOption(builder.getOptions());
 				}
+				
 				System.out.println("Взяли тачку со склада и изменили её");
+				storage.remove(car);
 				return car;
 			}
 		}
@@ -90,7 +89,6 @@ public abstract class Factory {
 	public Option[] getOptions() {
 		return options;
 	}
-
 
 	@Override
 	public String toString() {
