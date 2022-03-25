@@ -39,6 +39,7 @@ public abstract class Factory {
 		for (Car car : storage) {
 			if (car.compareAllParametrsOfCar(builder)) {
 				System.out.println("Взяли тачку со склада завода");
+				storage.remove(car);
 				return car;
 			} else if (car.compareFinalParametrsOfCar(builder)) {
 				

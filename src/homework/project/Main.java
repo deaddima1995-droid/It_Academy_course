@@ -2,21 +2,10 @@ package homework.project;
 
 import homework.project.data.CarSaler;
 
-import homework.project.data.car.car_data.change_data.Color;
-import homework.project.data.car.car_data.change_data.Option;
-import homework.project.data.car.car_data.change_data.Wheel;
-import homework.project.data.car.car_data.unchange_data.Cargo;
-import homework.project.data.car.car_data.unchange_data.Drive;
-import homework.project.data.car.car_data.unchange_data.Engine;
-import homework.project.data.car.car_data.unchange_data.Model;
-import homework.project.data.car.car_data.unchange_data.Turbo;
-import homework.project.data.factory.CarBuilder;
-import homework.project.data.factory.CargoFactory;
-import homework.project.data.factory.RacingFactory;
-import homework.project.data.factory.TrophyFactory;
-import homework.project.data.service.ColorServise;
-import homework.project.data.service.OptionServise;
-import homework.project.data.service.WheelServise;
+import homework.project.data.car.car_data.change_data.*;
+import homework.project.data.car.car_data.unchange_data.*;
+import homework.project.data.factory.*;
+import homework.project.data.service.*;
 import homework.project.exception_project.NullParametrException;
 
 public class Main {
@@ -32,10 +21,8 @@ public class Main {
 		
 		CarSaler saler = new CarSaler(colorServise, wheelServise, optionServise, raceFactory, trophyFactory, cargoFactory);
 		System.out.println(raceFactory);
-		System.out.println(raceFactory);
-		System.out.println(raceFactory);
-		
-		Option[] options = {Option.AUDIO, Option.BLUETOOTH , Option.CONDITIONER }; 	
+		System.out.println(cargoFactory);
+		System.out.println(trophyFactory+"\n");	
 		
 		try {
 			saler.takeOrder(new CarBuilder(Color.BLUE, Model.CADDY, Wheel.R18, Engine.HIGH, new Option[] {Option.AUDIO, Option.BLUETOOTH} , Turbo.MAX));
@@ -45,11 +32,10 @@ public class Main {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+	
 		System.out.println(raceFactory);
-		System.out.println(raceFactory);
-		System.out.println(raceFactory);
-		System.out.println(saler);
+		System.out.println(cargoFactory);
+		System.out.println(trophyFactory+"\n");	
 		
 	}
 
